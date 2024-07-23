@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <div class="page-content">
+            <div class="profile-page">
+                <div class="profile-information-content">
+                    <div class="toolbar">
+                        <div class="username-content">
+                            <div class="username-text-content" style="display: inline-flex;">
+                                <p class="username-text">user_username</p>
+                                <span style="margin: -.3em 0 0 .3em">⌄</span>
+                            </div>
+                        </div>
+                        <div class="toolbar-profile-content">
+                            <div class="new-publication toolbar-item">
+                                <img src="https://cdn-icons-png.flaticon.com/512/6537/6537820.png" class="item-icon">
+                            </div>
+                            <div class="menu toolbar-item">
+                                <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/hamburger_menu_icon_144302.png" class="item-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-info-content">
+                        <div class="first-line">
+                            <div class="profile-pic-content">
+                                <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5e3d34ac51d0aa1edcde3c5f/44884218_345707102882519_2446069589734326272_n.jpg" class="profile-pic">
+                            </div>
+                            <span style="margin-left: 2em;"></span>
+                            <div class="profile-statistics-content">
+                                <div class="counter publications-content counter-divisor">
+                                    <h3>0</h3>
+                                    <p>publicações</p>
+                                </div>
+                                <div class="counter followers-content counter-divisor">
+                                    <h3>0</h3>
+                                    <p>seguidores</p>
+                                </div>
+                                <div class="counter following-content">
+                                    <h3>0</h3>
+                                    <p>seguindo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="second-line">
+                            <div class="textual-content">
+                                <div class="name profile-name-container">
+                                    <h3 class="profile-name-text">User Username</h3>
+                                </div>
+                                <div class="profile-optional-tag"></div>
+                                <div class="profile-biography" style="width: 10em; position: relative;">
+                                    <span class="biography-text" style="display: block; width: 100%;">This is a biography.</span>
+                                </div>
+                                <div class="profile-optional-music"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-buttons-content">
+                        <button class="profile-button edit-profile">Editar perfil</button>
+                        <button class="profile-button share-profile-button">Compartilhar perfil</button>
+                    </div>
+                    <div class="profile-highlights-content">
+                        <div class="item 1">
+                            <div class="highlight-pic-content">
+                                <div class="highlight-pic"></div>
+                            </div>
+                            <div class="highlight-text-content">
+                                <div class="highlight-text"><p>me</p></div>
+                            </div>
+                        </div>
+                        <div class="item new-highlight-content">
+                            <div class="new-highlight-symbol"></div>
+                            <div class="highlight-text-content">
+                                <div class="highlight-text"><p>Novo</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-publications-content">
+                    <div class="publications-option-handler">
+                        <button class="own-publications option">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3nqNSPkfjynM2GFer1T8MQXetwh1gDBid9g&s" alt="" class="option-icon">
+                        </button>
+                        <button class="tagged-publications option">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1947/1947210.png" style="filter: invert();" class="option-icon">
+                        </button>
+                    </div>
+                    <div class="publications-page"></div>
+                </div>
+            </div>
+            <div class="settings popup-content hidden">
+                <div class="settings popup-background"></div>
+                <div class="settings-page popup-page">
+
+                </div>
+            </div>
+            <div class="edit-profile popup-content hidden" id="edit-profile-popup">
+                <div class="edit-profile popup-background"></div>
+                <div class="edit-profile-page popup-page">
+                    <header class="toolbar">
+                        <div class="toolbar-items">
+                            <button class="back-button">🡠</button>
+                            <div class="header-text" style="width:fit-content;"><p>Editar perfil<p></div>
+                            <button class="save-modification-container disabled" disabled="true">
+                                <img src="https://cdn-icons-png.freepik.com/512/9136/9136003.png" class="save-icon">
+                            </button>
+                        </div>
+                    </header>
+                    <div class="editables-container">
+                        <div class="change-picture-content">
+                            <div class="picture-and-avatar-container">
+                                <div class="profile editable-picture-container">
+                                    <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5e3d34ac51d0aa1edcde3c5f/44884218_345707102882519_2446069589734326272_n.jpg" class="actual-picture">
+                                </div>
+                                <div class="avatar editable-picture-container">SOON</div>
+                            </div>
+                            <div class="change-picture-text">
+                                <p style="color: #0391f0">Editar foto de perfil</p>
+                            </div>
+                        </div>
+
+                        <div class="change-information-content">
+                            <div class="inputs-content">
+                                <div class="name-input-content input-content">
+                                    <label class="custom-placeholder">Nome</label>
+                                    <input type="text" class="name-input change-input"></input>
+                                </div>
+                                <div class="username-input-content input-content">
+                                    <label class="custom-placeholder">Nome de usuário</label>
+                                    <input type="text" class="username-input change-input">
+                                </div>
+                                <div class="pronouns-input-content input-content">
+                                    <label class="custom-placeholder">Pronomes</label>
+                                    <input type="text" class="pronouns-input change-input">
+                                </div>
+                                <div class="biography-input-content input-content">
+                                    <label class="custom-placeholder">Bio</label>
+                                    <textarea type="text" class="biography-input change-input" id='biography-textarea' maxlength="150"></textarea>
+                                    <span class="limit-counter">0/150</span>
+                                </div>
+                            </div>
+                            <div class="extra-information">
+                                <div class="insert-link-content">
+                                    <button class="insert-link-button">Adicionar link</button>
+                                </div>
+                                <div class="insert-gender-content dropdown">
+                                    <button class="dropdown-button">Gênero</button>
+                                    <div class="dropdown-content">
+                                        <a href="#" data-value="Feminino">Feminino</a>
+                                        <a href="#" data-value="Masculino">Masculino</a>
+                                        <a href="#" data-value="Personalizado">Personalizado</a>
+                                        <a href="#" data-value="Prefiro não informar">Prefiro não informar</a>
+                                    </div>
+                                </div>
+                                <div class="show-thred-switch-content">
+                                    <input type="checkbox" name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </main>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
