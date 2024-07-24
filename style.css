@@ -97,12 +97,30 @@ header{
 
 
 .profile-pic-content{
+    position: relative;
     display: flex;
     width: 5em;
     aspect-ratio: 1;
+    justify-content: center;
+    align-items: center;
 
+    padding: .12rem;
+    background: linear-gradient(to right, yellow, rgb(255, 168, 29), red, rgb(160, 0, 160));
     border-radius: 100%;
 
+}
+
+.pic-wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    padding: .2em;
+    z-index: 0;
+    border-radius: 100%;
+    background-color: #0c0f14;
 }
 
 .profile-pic{
@@ -110,7 +128,7 @@ header{
     height: 100%;
 
     border-radius: 100%;
-
+    z-index: 1;
     background-size: cover;
     background-color: gray;
 
