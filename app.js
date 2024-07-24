@@ -1,4 +1,5 @@
 import { EditProfile } from './scripts/edit_profile.js';
+import { MenuHandler } from './scripts/menu.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const pageElements = {
@@ -6,9 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
             userUsername: document.querySelector('.username-text'),
             userName: document.querySelector('.profile-name-text'),
             userBiography: document.querySelector('.biography-text'),
-
+            profilePicBorder: document.querySelector('.pic-border'),
+            profilePicWrapper: document.querySelector('.pic-wrapper'),
 
             editProfileBtn: document.querySelector('.edit-profile'),
+
+            hightlight: {
+                itemsContainer: document.querySelector('.highlight-items'),
+                items: document.querySelectorAll('item')
+            }
         },
 
         popup: {
@@ -18,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             editProfile: {
                 dropdown: {
-                    button: document.querySelector('.dropdown-button'),
-                    content: document.querySelector('.dropdown-content'),
+                    button: document.querySelectorAll('.dropdown-button')[0],
+                    content: document.querySelectorAll('.dropdown-content')[0],
                 },
 
                 infoInputs: {
@@ -29,6 +36,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     limitCounter: document.querySelector('.limit-counter'),
                     changeContentBtn: document.querySelector('.save-modification-container'),
                 },
+            },
+
+            menu: {
+                dropdown:{
+                    button: document.querySelectorAll('.dropdown-button')[1],
+                    content: document.querySelectorAll('.dropdown-content')[1],
+                },
+
+                content: document.querySelectorAll('.menu')[1],
+                openButton: document.querySelectorAll('.menu')[0],
+
+                optionsContainer: document.querySelector('.options-container'),
             },
         },
     };
@@ -54,6 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
         connectInputs()
     });
 
+    new Sortable(pageElements.profilePage.hightlight.itemsContainer, {
+        animation: 150,
+        ghostClass: 'ghost',
+    })
 
     //Colocando os inputs com os valores respectivos do perfil
     function connectInputs(){
@@ -76,4 +99,5 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const editProfile = new EditProfile(pageElements);
+    const menuHandler = new MenuHandler(pageElements);
 });

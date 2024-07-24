@@ -20,16 +20,16 @@
                         </div>
                         <div class="toolbar-profile-content">
                             <div class="new-publication toolbar-item">
-                                <img src="https://cdn-icons-png.flaticon.com/512/6537/6537820.png" class="item-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/6537/6537820.png" class="item-icon" draggable="false">
                             </div>
                             <div class="menu toolbar-item">
-                                <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/hamburger_menu_icon_144302.png" class="item-icon">
+                                <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/hamburger_menu_icon_144302.png" class="item-icon menu-button" draggable="false">
                             </div>
                         </div>
                     </div>
                     <div class="user-info-content">
                         <div class="first-line">
-                            <div class="profile-pic-content">
+                            <div class="profile-pic-content pic-border">
                                 <div class="pic-wrapper">
                                     <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5e3d34ac51d0aa1edcde3c5f/44884218_345707102882519_2446069589734326272_n.jpg" class="profile-pic">
                                 </div>
@@ -68,15 +68,33 @@
                         <button class="profile-button share-profile-button">Compartilhar perfil</button>
                     </div>
                     <div class="profile-highlights-content">
-                        <div class="item 1">
-                            <div class="highlight-pic-content">
-                                <div class="highlight-pic"></div>
-                            </div>
-                            <div class="highlight-text-content">
-                                <div class="highlight-text"><p>me</p></div>
-                            </div>
-                        </div>
-                        <div class="item new-highlight-content">
+                        <ul class="highlight-items">
+                            <li class="item 1">
+                                <div class="highlight-pic-content">
+                                    <div class="highlight-pic"></div>
+                                </div>
+                                <div class="highlight-text-content">
+                                    <div class="highlight-text"><p>me</p></div>
+                                </div>
+                            </li>
+                            <li class="item 2">
+                                <div class="highlight-pic-content">
+                                    <div class="highlight-pic"></div>
+                                </div>
+                                <div class="highlight-text-content">
+                                    <div class="highlight-text"><p>me</p></div>
+                                </div>
+                            </li>
+                            <li class="item 3">
+                                <div class="highlight-pic-content">
+                                    <div class="highlight-pic"></div>
+                                </div>
+                                <div class="highlight-text-content">
+                                    <div class="highlight-text"><p>me</p></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="new-highlight-content">
                             <div class="new-highlight-symbol"></div>
                             <div class="highlight-text-content">
                                 <div class="highlight-text"><p>Novo</p></div>
@@ -168,13 +186,29 @@
                     </div>
                 </div>  
             </div>
-            <div class="menu popup-content">
+            <div class="menu popup-content hidden">
                 <div class="popup-background"></div>
-                <div class="menu popup-page"></div>
+                <div class="menu popup-page menu-page">
+                    <div class="options-container">
+                        <div class="border-choose-content dropdown">
+                            <label>
+                                Choose profile border
+                                <button class="border-choose dropdown-button">None</button>
+                                <div class="borders dropdown-content">
+                                    <a href="#" data-value="Close Friends">Close Friends</a>
+                                    <a href="#" data-value="New Story">New Story</a>
+                                    <a href="#" data-value="On Live">On Live</a>
+                                    <a href="#" data-value="None">None</a>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <script src="app.js" type="module"></script>
 </body>
 </html>
