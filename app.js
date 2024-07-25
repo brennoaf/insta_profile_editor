@@ -1,5 +1,6 @@
 import { EditProfile } from './scripts/edit_profile.js';
 import { MenuHandler } from './scripts/menu.js';
+import {  HighlightHandler  } from './scripts/highlight_handler.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const pageElements = {
@@ -10,9 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
             profilePicBorder: document.querySelector('.pic-border'),
             profilePicWrapper: document.querySelector('.pic-wrapper'),
 
+            newHighlight: document.querySelector('.new-highlight-content'),
             editProfileBtn: document.querySelector('.edit-profile'),
 
-            hightlight: {
+            highlight: {
                 itemsContainer: document.querySelector('.highlight-items'),
                 items: document.querySelectorAll('item')
             }
@@ -49,6 +51,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 optionsContainer: document.querySelector('.options-container'),
             },
+
+            highlights: {
+                content:document.querySelectorAll('.popup-content')[3],
+                openPopup: document.querySelector('.new-highlight'),
+
+                creationPopup: {
+                    content: document.querySelector('.create-highlight'),
+                    close: document.querySelector('.space-close'),
+                    saveCreationBtn: document.querySelector('.save-creation-container'),
+
+                    hgTxt: document.querySelector('.hg-text-container'),
+                    hgTxtInput: document.querySelector('.hg-text-input'),
+                }
+            }
         },
     };
 
@@ -73,7 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
         connectInputs()
     });
 
-    new Sortable(pageElements.profilePage.hightlight.itemsContainer, {
+
+    //Possibilita sortir os destaques do perfil
+    new Sortable(pageElements.profilePage.highlight.itemsContainer, {
         animation: 150,
         ghostClass: 'ghost',
     })
@@ -100,4 +118,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const editProfile = new EditProfile(pageElements);
     const menuHandler = new MenuHandler(pageElements);
+    const highlightHandler = new HighlightHandler(pageElements);
 });

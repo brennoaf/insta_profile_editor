@@ -195,12 +195,25 @@ body .page-content .profile-page .profile-highlights-content .new-highlight-cont
   margin-right: 1em;
   width: 4em;
   padding: 0.1em;
+  user-select: none;
 }
-body .page-content .profile-page .profile-highlights-content .new-highlight-content .new-highlight-symbol {
+body .page-content .profile-page .profile-highlights-content .new-highlight-content .new-highlight-sign {
   width: 100%;
   aspect-ratio: 1;
   border: solid white 1px;
   border-radius: 100%;
+  pointer-events: none;
+}
+body .page-content .profile-page .profile-highlights-content .new-highlight-content .new-highlight-sign .new-highlight-symbol {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+body .page-content .profile-page .profile-highlights-content .new-highlight-content .new-highlight-sign .new-highlight-symbol span {
+  font-size: 28px;
+  font-weight: 300;
 }
 body .page-content .profile-page .profile-highlights-content .new-highlight-content .highlight-text-content {
   display: flex;
@@ -208,6 +221,7 @@ body .page-content .profile-page .profile-highlights-content .new-highlight-cont
   width: 100%;
   margin-top: 0.3em;
   font-size: 12px;
+  pointer-events: none;
 }
 body .page-content .profile-page .profile-publications-content {
   display: flex;
@@ -526,6 +540,234 @@ body .page-content .popup-content .popup-page.menu .options-container .border-ch
 }
 body .page-content .popup-content .popup-page.menu .options-container .border-choose-content.dropdown .dropdown-content.show {
   display: block;
+}
+body .page-content .popup-content .popup-page.highlights {
+  margin: auto;
+  width: 350px;
+  height: 100vh;
+  background-color: #0c0f14;
+}
+body .page-content .popup-content .popup-page.highlights .toolbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 2.5em;
+  padding: 0 0 0.5em 0;
+}
+body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+}
+body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .back-button {
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .header-text {
+  margin-left: 1.5em;
+  font-weight: 500;
+}
+body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .save-creation-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.8em;
+  aspect-ratio: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .save-creation-container .save-icon {
+  width: 100%;
+  height: 100%;
+}
+body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .save-creation-container.disabled {
+  filter: grayscale(1);
+  opacity: 40%;
+  cursor: auto;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .highlight-items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1em;
+  justify-items: center;
+  list-style-type: none;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .highlight-items .mockup-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 4em;
+  padding: 0.1em;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .highlight-items .mockup-item .highlight-pic-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5em;
+  height: 3.5em;
+  opacity: 50%;
+  border: solid gray 2px;
+  border-radius: 100%;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .highlight-items .mockup-item .highlight-pic-content .highlight-pic {
+  width: 3em;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: blue;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .highlight-items .mockup-item .highlight-text-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.3em;
+  font-size: 12px;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .new-highlight-content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .new-highlight-content .new-highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 1em;
+  width: fit-content;
+  padding: 0.1em;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .new-highlight-content .new-highlight .new-highlight-sign {
+  width: 100%;
+  aspect-ratio: 1;
+  border: solid white 1px;
+  border-radius: 100%;
+  pointer-events: none;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .new-highlight-content .new-highlight .new-highlight-sign .new-highlight-symbol {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .new-highlight-content .new-highlight .new-highlight-sign .new-highlight-symbol span {
+  font-size: 28px;
+  font-weight: 300;
+}
+body .page-content .popup-content .popup-page.highlights .highlights-content .new-highlight-content .new-highlight .highlight-text-content {
+  display: flex;
+  justify-content: center;
+  width: max-content;
+  margin-top: 1em;
+  font-size: 15px;
+  pointer-events: none;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .space-close {
+  top: -10px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page {
+  position: relative;
+  width: 350px;
+  z-index: 1;
+  padding: 0.5em;
+  background-color: #262626;
+  border-radius: 10px;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .close-button-container {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .close-button-container .close-button {
+  background: none;
+  border: none;
+  font-size: 15px;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  margin-top: 1em;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8em;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  border: solid gray 4px;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-pic .hg-pic-container {
+  width: 90%;
+  height: 90%;
+  background-color: blue;
+  border-radius: 100%;
+  overflow: hidden;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  width: 100%;
+  margin-top: 0.5em;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-text .hg-text-container {
+  display: flex;
+  justify-content: center;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .entry-content {
+  width: 100%;
+  height: 3em;
+  margin-top: 2em;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .entry-content .input-items .input-content {
+  position: relative;
+  margin-top: 0.5em;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .entry-content .input-items .input-content .custom-placeholder {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  align-items: center;
+  margin-left: 1em;
+  font-size: 9px;
+  transition: 0.5s;
+  pointer-events: none;
+  color: #a0a3a8;
+}
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .entry-content .input-items input {
+  width: 100%;
+  height: 36px;
+  padding: 1em 1em 0 1em;
+  font-size: 10px;
+  background: none;
+  border-style: none;
+  border: solid #5f6268 1px;
+  border-radius: 8px;
+  outline-style: none;
+}
+body .page-content .popup-content .popup-page.highlights .hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
