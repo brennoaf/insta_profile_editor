@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     content: document.querySelector('.create-highlight'),
                     close: document.querySelector('.space-close'),
                     saveCreationBtn: document.querySelector('.save-creation-container'),
+                    imagePreview: document.querySelector('.highlight-demo'),
+                    hgImage: document.querySelector('.hg-pic'),
+                    imageHitbox: document.getElementById('hg-pic-file'),
 
                     hgTxt: document.querySelector('.hg-text-container'),
                     hgTxtInput: document.querySelector('.hg-text-input'),
@@ -78,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+
 
     // Abrindo popup de editar perfil
     pageElements.profilePage.editProfileBtn.addEventListener('click', () => {
