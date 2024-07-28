@@ -74,47 +74,46 @@ export class HighlightHandler{
     creationManager(originalInput, changedInput){
         const { highlights } = this.pageElements.popup;
         resetListener(highlights.creationPopup.highlightsContainer);
-
-        //Atualiza o nome da prévia do destaque com base no value do input
-        highlights.creationPopup.hgTxtInput.addEventListener('input', () =>{
-
+        const maxOffset = 138;
+        
+        // Iterando o texto para adaptar ao offset
+        function adjustTextToFit(element, maxWidth, originalText) {
+            let trimmedText = originalText;
+            element.textContent = trimmedText;
+        
+            while (element.offsetWidth > maxWidth && trimmedText.length > 0) {
+                trimmedText = trimmedText.slice(0, -1);
+                element.textContent = trimmedText + '...';
+            }
+        
+            return element.textContent;
+        }
+        
+        // Atualiza o nome da prévia do destaque com base no value do input
+        highlights.creationPopup.hgTxtInput.addEventListener('input', () => {
             originalInput = highlights.creationPopup.hgTxtInput.value.trim();
-            changedInput = highlights.creationPopup.hgTxtInput.value.trim();
+            changedInput = originalInput;
             highlights.creationPopup.hgTxt.textContent = changedInput;
-
-            //Verificando conteúdo offset sem os 3 pontos
-            if((changedInput.slice(-3)) === '...' && !(originalInput.slice(-3)) === '...'){
-                changedInput = changedInput.slice(0, -3)
-                console.log(changedInput)
-
-                highlights.creationPopup.hgTxt.textContent = changedInput
-
-                if(highlights.creationPopup.hgTxt.offsetWidth > 146){
+        
+            // Verificando conteúdo offset sem os 3 pontos
+            if ((changedInput.slice(-3)) === '...' && !(originalInput.slice(-3) === '...')) {
+                changedInput = changedInput.slice(0, -3);
+                highlights.creationPopup.hgTxt.textContent = changedInput;
+        
+                if (highlights.creationPopup.hgTxt.offsetWidth > maxOffset) {
                     changedInput += '...';
-                    highlights.creationPopup.hgTxt.textContent = changedInput; 
-
+                    highlights.creationPopup.hgTxt.textContent = changedInput;
                 }
             }
-
-            if(highlights.creationPopup.hgTxt.offsetWidth > 146){
-                changedInput = highlights.creationPopup.hgTxtInput.value.trim().slice(0, 12) + '...';
-                highlights.creationPopup.hgTxt.textContent = changedInput;
-                console.log(changedInput)
-                
-            }else{
-                
+        
+            if (highlights.creationPopup.hgTxt.offsetWidth > maxOffset) {
+                changedInput = adjustTextToFit(highlights.creationPopup.hgTxt, maxOffset, highlights.creationPopup.hgTxtInput.value.trim());
             }
-
-            if(!highlights.creationPopup.hgTxtInput.value){
-                highlights.creationPopup.hgTxt.textContent = 'Highlight';
-            }
-
-            console.log(highlights.creationPopup.hgTxt.offsetWidth)
-
 
             highlights.creationPopup.saveCreationBtn.disabled = false;
             highlights.creationPopup.saveCreationBtn.classList.remove('disabled');
-        })
+        });
+
 
         //linkando e importando imagem
         highlights.creationPopup.imageHitbox.addEventListener('input', async () => {
@@ -133,39 +132,27 @@ export class HighlightHandler{
         highlights.creationPopup.saveCreationBtn.addEventListener('click', async () =>{
             try{
                 const { highlightsContainer } = highlights.creationPopup;
+                const { itemsContainer } = this.pageElements.profilePage.highlight;
                 const highlightsQuant = highlightsContainer.childElementCount;
         
-                //Criando o container do highlight
-                const newHg =  document.createElement('div');
-                newHg.classList.add('mockup-item');
-                newHg.classList.add(`${highlightsQuant + 1}`)
+                function createHighlight(changedInput, hgClass, itemType){
+                    //Criando o container do highlight
+                    const newHg =  document.createElement(itemType);
+                    newHg.classList.add(hgClass);
+                    newHg.classList.add(`${highlightsQuant + 1}`)
 
-                //Criando container de imagem
-                const hgPicCont = document.createElement('div');
-                hgPicCont.classList.add('highlight-pic-content');
+                    //Criando container de imagem
+                    const hgPicCont = document.createElement('div');
+                    hgPicCont.classList.add('highlight-pic-content');
 
-                //criando container de esconder highlight
-                const hgHideCont = document.createElement('div');
-                hgHideCont.classList.add('hide-highlight');
+                    //Criando imagem do highlight
+                    const hgPic = document.createElement('div');
+                    hgPic.classList.add('highlight-pic');
 
-                const hgHideOff = document.createElement('i');
-                hgHideOff.classList.add('gg-eye');
-                const hgHideOn = document.createElement('i');
-                hgHideOn.classList.add('gg-border-style-solid');
-                hgHideOn.classList.add('off');
-                
-
-                //Criando imagem do highlight
-                const hgPic = document.createElement('div');
-                hgPic.classList.add('highlight-pic');
-
-                hgPic.style.backgroundImage = `url('${highlights.creationPopup.hgImage.src}')`;
+                    hgPic.style.backgroundImage = `url('${highlights.creationPopup.hgImage.src}')`;
 
 
-                if(!highlights.creationPopup.imageHitbox.value){
-                    window.alert('You need to insert a picture!');
                     
-                }else{
                     //Criando container de texto
                     const hgTextCont = document.createElement('div');
                     hgTextCont.classList.add('highlight-text-content');
@@ -174,41 +161,76 @@ export class HighlightHandler{
                     const hgText = document.createElement('span');
                     hgText.classList.add('highlight-text');
 
+
+                    if(hgClass === 'mockup-item'){
+                        //criando container de esconder highlight
+                        const hgHideCont = document.createElement('div');
+                        hgHideCont.classList.add('hide-highlight');
+
+                        const hgHideOff = document.createElement('i');
+                        hgHideOff.classList.add('gg-eye');
+                        const hgHideOn = document.createElement('i');
+                        hgHideOn.classList.add('gg-border-style-solid');
+                        hgHideOn.classList.add('off');
+
+                        hgPicCont.appendChild(hgHideCont);
+                        hgHideCont.appendChild(hgHideOff);
+                        hgHideCont.appendChild(hgHideOn);
+
+                    }
+
                     //Se o input do nome tiver vazio, seta para 'Highlight'
                     if(!highlights.creationPopup.hgTxtInput.value){
                         hgText.textContent = 'Highlight';
 
                     }else{
+                        console.log(changedInput)
                         hgText.textContent = changedInput;
 
                     }
 
-                    //Adicionando filhos aos respectivos pais
-                    hgHideCont.appendChild(hgHideOff);
-                    hgHideCont.appendChild(hgHideOn);
-                    hgPicCont.appendChild(hgHideCont);
                     hgPicCont.appendChild(hgPic);
                     hgTextCont.appendChild(hgText);
                     newHg.appendChild(hgPicCont);
                     newHg.appendChild(hgTextCont);
-                    highlightsContainer.appendChild(newHg);
 
+                    return newHg;
+                    
+                }
+
+
+                if(!highlights.creationPopup.imageHitbox.value){
+                    window.alert('You need to insert a picture!');
+                    
+                }else{
+                    let newHg  = createHighlight(changedInput, 'mockup-item', 'div');
+                    let newItemHg = createHighlight(changedInput, 'item', 'li');
+                    
+
+                    console.log(newHg)
+
+                    //Adicionando filhos aos respectivos pais
+                    highlightsContainer.appendChild(newHg);
+                    itemsContainer.appendChild(newItemHg);
 
                     
-                    //Resetando popup de criação
-
-                    resetListener(highlights.creationPopup.highlightsContainer);
-
-                    this.resetHgCreation(
-                        highlights.creationPopup.content,
-
-                        highlights.creationPopup.saveCreationBtn,
-                        highlights.creationPopup.hgTxtInput,
-                        highlights.creationPopup.hgTxt,
-                        highlights.creationPopup.hgImage,
-                        highlights.creationPopup.imageHitbox
-                    )
                 }
+
+
+                resetListener(highlights.creationPopup.highlightsContainer);
+
+
+                //Resetando popup de criação
+                this.resetHgCreation(
+                    highlights.creationPopup.content,
+
+                    highlights.creationPopup.saveCreationBtn,
+                    highlights.creationPopup.hgTxtInput,
+                    highlights.creationPopup.hgTxt,
+                    highlights.creationPopup.hgImage,
+                    highlights.creationPopup.imageHitbox
+                )
+                
 
             }catch(error){
                 console.log('Erro, ', error)

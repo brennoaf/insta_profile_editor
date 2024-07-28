@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pageElements.popup.editProfile.infoInputs.changeContentBtn.classList.add('disabled');
         pageElements.popup.editProfile.infoInputs.changeContentBtn.disabled = true
 
-        connectInputs()
+        connectInputs();
     });
 
 
@@ -101,6 +101,24 @@ document.addEventListener('DOMContentLoaded', function() {
         animation: 150,
         ghostClass: 'ghost',
     })
+
+    //observer colocado para setar sortable novamente nos items da lista contendo os highlights
+    const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+
+                new Sortable(pageElements.profilePage.highlight.itemsContainer, {
+                    animation: 150,
+                    ghostClass: 'ghost',
+                });
+            }
+        }
+    });
+
+
+    observer.observe(pageElements.profilePage.highlight.itemsContainer, {
+        childList: true,
+    });
 
     //Colocando os inputs com os valores respectivos do perfil
     function connectInputs(){

@@ -179,6 +179,7 @@ body .page-content .profile-page .profile-highlights-content .highlight-items .i
   width: 3em;
   aspect-ratio: 1;
   border-radius: 100%;
+  background-size: cover;
   background-color: blue;
 }
 body .page-content .profile-page .profile-highlights-content .highlight-items .item .highlight-text-content {
@@ -186,7 +187,7 @@ body .page-content .profile-page .profile-highlights-content .highlight-items .i
   justify-content: center;
   width: 100%;
   margin-top: 0.3em;
-  font-size: 12px;
+  font-size: 10px;
 }
 body .page-content .profile-page .profile-highlights-content .new-highlight-content {
   display: flex;
