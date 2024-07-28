@@ -148,6 +148,9 @@ body .page-content .profile-page .profile-buttons-content .profile-button {
 body .page-content .profile-page .profile-highlights-content {
   display: flex;
   margin-top: 1em;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 body .page-content .profile-page .profile-highlights-content .highlight-items {
   display: flex;
@@ -164,6 +167,8 @@ body .page-content .profile-page .profile-highlights-content .highlight-items .i
 }
 body .page-content .profile-page .profile-highlights-content .highlight-items .item.ghost {
   opacity: 0.5;
+  border: dashed white 1px;
+  border-radius: 8px;
 }
 body .page-content .profile-page .profile-highlights-content .highlight-items .item .highlight-pic-content {
   display: flex;
@@ -192,8 +197,8 @@ body .page-content .profile-page .profile-highlights-content .highlight-items .i
 body .page-content .profile-page .profile-highlights-content .new-highlight-content {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   justify-content: center;
-  margin-right: 1em;
   width: 4em;
   padding: 0.1em;
   user-select: none;

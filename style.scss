@@ -188,6 +188,7 @@ body {
         .profile-button {
           width: 49%;
           padding: .5em;
+
           border: none;
           border-radius: 6px;
           background-color: $button-background;
@@ -200,6 +201,9 @@ body {
       .profile-highlights-content {
         display: flex;
         margin-top: 1em;
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+        scroll-behavior: smooth;
 
         .highlight-items{
           display: flex;
@@ -217,6 +221,9 @@ body {
   
             &.ghost{
               opacity: 0.5;
+
+              border: dashed white 1px;
+              border-radius: 8px;
             }
 
             .highlight-pic-content {
@@ -251,8 +258,8 @@ body {
         .new-highlight-content{
           display: flex;
           flex-direction: column;
+          flex-shrink: 0;
           justify-content: center;
-          margin-right: 1em;
           width: 4em;
           padding: .1em;
 

@@ -100,6 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
     new Sortable(pageElements.profilePage.highlight.itemsContainer, {
         animation: 150,
         ghostClass: 'ghost',
+        delay: 200,
+        delayOnTouchOnly: true,
     })
 
     //observer colocado para setar sortable novamente nos items da lista contendo os highlights
@@ -110,6 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 new Sortable(pageElements.profilePage.highlight.itemsContainer, {
                     animation: 150,
                     ghostClass: 'ghost',
+                    delay: 200,
+                    delayOnTouchOnly: true,
                 });
             }
         }
