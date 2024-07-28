@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "instagram-scraper-api2.p.rapidapi.com",
-                    "x-rapidapi-key": "e691e964aamsh209e905fe93ed50p1d4e4djsn9d88071c0859"
+                    "x-rapidapi-key": ""
                 }
             };
 
