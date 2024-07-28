@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     imagePreview: document.querySelector('.highlight-demo'),
                     hgImage: document.querySelector('.hg-pic'),
                     imageHitbox: document.getElementById('hg-pic-file'),
+                    highlightsContainer: document.querySelector('.manage-highlight-items'),
 
                     hgTxt: document.querySelector('.hg-text-container'),
                     hgTxtInput: document.querySelector('.hg-text-input'),
