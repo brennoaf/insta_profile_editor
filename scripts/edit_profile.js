@@ -46,16 +46,16 @@ export class EditProfile {
             const inputContainer = input.parentNode;
             const placeholder = inputContainer.childNodes[1];
             input.addEventListener('focus', () => {
-                placeholder.style.fontSize = '9px';
+                placeholder.style.fontSize = '13px';
                 placeholder.style.alignItems = 'flex-start';
                 placeholder.style.paddingLeft = '.1em';
-                placeholder.style.top = '5px';
+                placeholder.style.top = '12px';
             });
 
             //Modifica o input quando desselecionar
             input.addEventListener('blur', () => {
                 if (!input.value) {
-                    placeholder.style.fontSize = '10px';
+                    placeholder.style.fontSize = '14px';
                     placeholder.style.alignItems = 'center';
                     placeholder.style.top = 'inherit';
                     placeholder.style.color = '#a0a3a8';
@@ -63,10 +63,10 @@ export class EditProfile {
             });
 
             if (input.value) {
-                placeholder.style.fontSize = '9px';
+                placeholder.style.fontSize = '13px';
                 placeholder.style.alignItems = 'flex-start';
                 placeholder.style.paddingLeft = '.1em';
-                placeholder.style.top = '5px';
+                placeholder.style.top = '8px';
             }
 
             input.addEventListener('input', () =>{
@@ -93,7 +93,7 @@ export class EditProfile {
         textArea.style.height = (heightFitContent + 70) + 'px';
 
         if (!textArea.value) {
-            textArea.style.height = '36px';
+            textArea.style.height = '50px';
         }
     }
 

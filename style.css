@@ -25,7 +25,7 @@ body .page-content .profile-page {
   height: 100%;
   width: 100vw;
   max-width: 750px;
-  padding: 0.5em;
+  padding: 0.5em 1em 0.5em 1em;
 }
 body .page-content .profile-page .toolbar {
   display: flex;
@@ -34,6 +34,9 @@ body .page-content .profile-page .toolbar {
   width: 100%;
   height: 2.5em;
   padding: 0 0 0.5em 0;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+  font-size: 17px;
   user-select: none;
 }
 body .page-content .profile-page .toolbar .toolbar-profile-content {
@@ -74,13 +77,13 @@ body .page-content .profile-page .user-info-content .first-line {
 body .page-content .profile-page .user-info-content .first-line .profile-pic-content {
   display: flex;
   flex-shrink: 0;
-  width: 5em;
+  width: 5.5em;
   aspect-ratio: 1;
   justify-content: center;
   align-items: center;
-  padding: 0.12rem;
+  padding: 0.2em;
   transition: 1s;
-  background: linear-gradient(to right, yellow, rgb(255, 168, 29), red, rgb(160, 0, 160));
+  background: none;
   border-radius: 100%;
   user-select: none;
   pointer-events: none;
@@ -108,7 +111,7 @@ body .page-content .profile-page .user-info-content .first-line .profile-statist
   display: flex;
   height: 100%;
   align-items: center;
-  font-size: 11px;
+  font-size: 12px;
   width: 100%;
   justify-content: space-around;
 }
@@ -117,10 +120,14 @@ body .page-content .profile-page .user-info-content .first-line .profile-statist
   flex-direction: column;
   align-items: center;
 }
+body .page-content .profile-page .user-info-content .first-line .profile-statistics-content .counter h3 {
+  font-size: 16px;
+  margin-bottom: 0.1em;
+}
 body .page-content .profile-page .user-info-content .second-line {
   display: grid;
   margin-top: 0.5em;
-  font-size: 10px;
+  font-size: 12px;
 }
 body .page-content .profile-page .user-info-content .second-line .textual-content .profile-biography {
   width: 10em;
@@ -138,11 +145,12 @@ body .page-content .profile-page .profile-buttons-content {
 }
 body .page-content .profile-page .profile-buttons-content .profile-button {
   width: 49%;
-  padding: 0.5em;
+  padding: 0.7em;
   border: none;
-  border-radius: 6px;
-  background-color: #161616;
-  font-size: 11px;
+  border-radius: 8px;
+  background-color: #262626;
+  font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
   user-select: none;
 }
@@ -161,8 +169,9 @@ body .page-content .profile-page .profile-highlights-content .highlight-items .i
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-right: 1em;
-  width: 4em;
+  width: 5em;
   padding: 0.1em;
   cursor: move;
 }
@@ -175,14 +184,13 @@ body .page-content .profile-page .profile-highlights-content .highlight-items .i
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.5em;
-  height: 3.5em;
-  opacity: 50%;
-  border: solid gray 2px;
+  width: 4em;
+  height: 4em;
+  border: solid #393937 2.5px;
   border-radius: 100%;
 }
 body .page-content .profile-page .profile-highlights-content .highlight-items .item .highlight-pic-content .highlight-pic {
-  width: 3em;
+  width: 90%;
   aspect-ratio: 1;
   border-radius: 100%;
   background-size: cover;
@@ -200,9 +208,10 @@ body .page-content .profile-page .profile-highlights-content .new-highlight-cont
   flex-direction: column;
   flex-shrink: 0;
   justify-content: center;
-  width: 4em;
+  width: 4.5em;
   padding: 0.1em;
   user-select: none;
+  cursor: pointer;
 }
 body .page-content .profile-page .profile-highlights-content .new-highlight-content .new-highlight-sign {
   width: 100%;
@@ -237,14 +246,14 @@ body .page-content .profile-page .profile-publications-content {
 body .page-content .profile-page .profile-publications-content .publications-option-handler {
   display: inline-flex;
   justify-content: space-around;
-  margin: 1em 0 0.1em 0;
+  margin: 2em 0 0.1em 0;
   width: 100%;
 }
 body .page-content .profile-page .profile-publications-content .publications-option-handler .option {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3em;
+  width: 2em;
   height: 1.8em;
   border: none;
   background: none;
@@ -253,7 +262,7 @@ body .page-content .profile-page .profile-publications-content .publications-opt
   border-bottom: solid white 1px;
 }
 body .page-content .profile-page .profile-publications-content .publications-option-handler .option .option-icon {
-  width: 1.1em;
+  width: 90%;
   aspect-ratio: 1;
   background-size: contain;
 }
@@ -315,13 +324,14 @@ body .page-content .popup-content .popup-page.edit-profile-page .toolbar .toolba
   cursor: pointer;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .toolbar .toolbar-items .header-text {
-  margin-left: 1.5em;
+  font-size: 17px;
+  margin-left: 2.5em;
   font-weight: 500;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .toolbar .toolbar-items .save-modification-container {
   position: absolute;
   right: 0;
-  width: 1.8em;
+  width: 2em;
   aspect-ratio: 1;
   background: none;
   border: none;
@@ -353,17 +363,20 @@ body .page-content .popup-content .popup-page.edit-profile-page .editables-conta
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 9em;
+  width: 11em;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-picture-content .picture-and-avatar-container .editable-picture-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3.5em;
+  width: 4.2em;
   aspect-ratio: 1;
   border: solid white 1px;
   border-radius: 100%;
   overflow: hidden;
+}
+body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-picture-content .picture-and-avatar-container .editable-picture-container.profile {
+  cursor: pointer;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-picture-content .picture-and-avatar-container .editable-picture-container .actual-picture {
   width: 100%;
@@ -372,7 +385,9 @@ body .page-content .popup-content .popup-page.edit-profile-page .editables-conta
 body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-picture-content .change-picture-text {
   display: flex;
   justify-content: center;
-  margin-top: 0.5em;
+  margin: 1.5em 0 0.5em 0;
+  font-size: 13px;
+  font-weight: 500;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-information-content {
   display: flex;
@@ -397,20 +412,20 @@ body .page-content .popup-content .popup-page.edit-profile-page .editables-conta
   height: 100%;
   align-items: center;
   margin-left: 1em;
-  font-size: 9px;
+  font-size: 13px;
   transition: 0.5s;
   pointer-events: none;
   color: #a0a3a8;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-information-content .inputs-content .input-content .change-input {
   width: 100%;
-  height: 36px;
-  padding: 1em 1em 0 1em;
-  font-size: 10px;
+  height: 56px;
+  padding: 1.2em 1em 0 1em;
+  font-size: 14px;
   background: none;
   border-style: none;
   border: solid #282b30 1px;
-  border-radius: 8px;
+  border-radius: 12px;
   outline-style: none;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-information-content .inputs-content .input-content.biography-input-content .biography-input {
@@ -428,7 +443,7 @@ body .page-content .popup-content .popup-page.edit-profile-page .editables-conta
   margin: 0 5px 5px 0;
   right: 0;
   bottom: 0;
-  font-size: 9px;
+  font-size: 12px;
   transition: 0.5s;
   pointer-events: none;
   color: #a0a3a8;
@@ -501,7 +516,7 @@ body .page-content .popup-content .popup-page.menu .options-container .border-ch
   padding: 0.5em;
   margin-top: 0.1em;
   background: none;
-  border: solid gray 1px;
+  border: solid #393937 1px;
   border-radius: 5px;
 }
 body .page-content .popup-content .popup-page.menu .options-container .border-choose-content.dropdown {
@@ -517,7 +532,7 @@ body .page-content .popup-content .popup-page.menu .options-container .border-ch
   font-size: 12px;
   background: none;
   border-style: none;
-  border: solid gray 1px;
+  border: solid #393937 1px;
   border-radius: 8px;
   outline-style: none;
 }
@@ -571,7 +586,8 @@ body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items
   cursor: pointer;
 }
 body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .header-text {
-  margin-left: 1.5em;
+  font-size: 17px;
+  margin-left: 2.5em;
   font-weight: 500;
 }
 body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .save-creation-container {
@@ -620,7 +636,7 @@ body .page-content .popup-content .popup-page.highlights .highlights-content .ma
   width: 3.5em;
   height: 3.5em;
   padding: 0.15em;
-  border: solid gray 2px;
+  border: solid #393937 2px;
   border-radius: 100%;
   cursor: pointer;
 }
@@ -760,7 +776,7 @@ body .page-content .popup-content .popup-page.highlights .create-highlight .crea
   width: 8em;
   aspect-ratio: 1;
   border-radius: 100%;
-  border: solid gray 4px;
+  border: solid #393937 4px;
   pointer-events: none;
 }
 body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-pic .edit-pic-container {

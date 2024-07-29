@@ -2,8 +2,8 @@
 
 $primary-color: white;
 $background-color: #0c0f14;
-$button-background: #161616;
-$border-color: gray;
+$button-background: #262626;
+$border-color: #393937;
 $popup-background: #262626;
 
 $highlight-border: white;
@@ -43,7 +43,7 @@ body {
       width: 100vw;
 
       max-width: 750px;
-      padding: .5em;
+      padding: .5em 1em .5em 1em;
 
       .toolbar {
         display: flex;
@@ -52,6 +52,9 @@ body {
         width: 100%;
         height: 2.5em;
         padding: 0 0 .5em 0;
+        margin-bottom: .5em;
+        font-weight: 500;
+        font-size: 17px;
 
         user-select: none;
 
@@ -100,14 +103,14 @@ body {
           .profile-pic-content {
             display: flex;
             flex-shrink: 0;
-            width: 5em;
+            width: 5.5em;
             aspect-ratio: 1;
             justify-content: center;
             align-items: center;
-            padding: .12rem;
+            padding: .2em;
 
             transition: 1s;
-            background: $new-story-border;
+            background: none;
             border-radius: 100%;
 
             user-select: none;
@@ -141,7 +144,7 @@ body {
             display: flex;
             height: 100%;
             align-items: center;
-            font-size: 11px;
+            font-size: 12px;
             width: 100%;
             justify-content: space-around;
 
@@ -151,6 +154,11 @@ body {
               flex-direction: column;
               align-items: center;
 
+              h3{
+                font-size: 16px;
+                margin-bottom: .1em;
+              }
+
             }
           }
         }
@@ -158,13 +166,12 @@ body {
         .second-line {
           display: grid;
           margin-top: .5em;
-          font-size: 10px;
+          font-size: 12px;
 
           .textual-content {
             .name.profile-name-container {
               .profile-name-text {
                 h3 {
-                  // styles for profile name text
                 }
               }
             }
@@ -190,12 +197,13 @@ body {
 
         .profile-button {
           width: 49%;
-          padding: .5em;
+          padding: .7em;
 
           border: none;
-          border-radius: 6px;
+          border-radius: 8px;
           background-color: $button-background;
-          font-size: 11px;
+          font-size: 13px;
+          font-weight: 500;
           cursor: pointer;
           user-select: none;
         }
@@ -216,8 +224,9 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
             margin-right: 1em;
-            width: 4em;
+            width: 5em;
             padding: .1em;
 
             cursor: move;
@@ -233,14 +242,14 @@ body {
               display: flex;
               align-items: center;
               justify-content: center;
-              width: 3.5em;
-              height: 3.5em;
-              opacity: 50%;
-              border: solid $border-color 2px;
+              width: 4em;
+              height: 4em;
+
+              border: solid $border-color 2.5px;
               border-radius: 100%;
   
               .highlight-pic {
-                width: 3em;
+                width: 90%;
                 aspect-ratio: 1;
                 border-radius: 100%;
                 background-size: cover;
@@ -263,10 +272,11 @@ body {
           flex-direction: column;
           flex-shrink: 0;
           justify-content: center;
-          width: 4em;
+          width: 4.5em;
           padding: .1em;
 
           user-select: none;
+          cursor: pointer;
 
           .new-highlight-sign{
             width: 100%;
@@ -309,14 +319,14 @@ body {
         .publications-option-handler {
           display: inline-flex;
           justify-content: space-around;
-          margin: 1em 0 .1em 0;
+          margin: 2em 0 .1em 0;
           width: 100%;
 
           .option {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 3em;
+            width: 2em;
             height: 1.8em;
             border: none;
             background: none;
@@ -326,7 +336,7 @@ body {
             }
 
             .option-icon {
-              width: 1.1em;
+              width: 90%;
               aspect-ratio: 1;
               background-size: contain;
             }
@@ -402,14 +412,15 @@ body {
                 }
 
                 .header-text {
-                    margin-left: 1.5em;
+                    font-size: 17px;
+                    margin-left: 2.5em;
                     font-weight: 500;
                 }
 
                 .save-modification-container {
                     position: absolute;
                     right: 0;
-                    width: 1.8em;
+                    width: 2em;
                     aspect-ratio: 1;
                     background: none;
                     border: none;
@@ -446,18 +457,22 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
-                    width: 9em;
+                    width: 11em;
 
                     .editable-picture-container {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        width: 3.5em;
+                        width: 4.2em;
                         
                         aspect-ratio: 1;
                         border: solid $primary-color 1px;
                         border-radius: 100%;
                         overflow: hidden;
+
+                        &.profile{
+                          cursor: pointer;
+                        }
 
                         .actual-picture {
                             width: 100%;
@@ -469,7 +484,9 @@ body {
                 .change-picture-text {
                     display: flex;
                     justify-content: center;
-                    margin-top: .5em;
+                    margin: 1.5em 0 .5em 0;
+                    font-size: 13px;
+                    font-weight: 500;
                 }
             }
 
@@ -497,7 +514,7 @@ body {
                             align-items: center;
                             margin-left: 1em;
     
-                            font-size: 9px;
+                            font-size: 13px;
                             transition: .5s;
                             pointer-events: none;
                             color: #a0a3a8;
@@ -505,14 +522,14 @@ body {
     
                         .change-input{
                             width: 100%;
-                            height: 36px;
-                            padding: 1em 1em 0 1em;
+                            height: 56px;
+                            padding: 1.2em 1em 0 1em;
                         
-                            font-size: 10px;
+                            font-size: 14px;
                             background: none;
                             border-style: none;
                             border: solid #282b30 1px;
-                            border-radius: 8px;
+                            border-radius: 12px;
                             outline-style: none;
     
                         }
@@ -536,7 +553,7 @@ body {
                         
                             right: 0;
                             bottom: 0;
-                            font-size: 9px;
+                            font-size: 12px;
                             transition: .5s;
                             pointer-events: none;
                             color: #a0a3a8;
@@ -720,8 +737,9 @@ body {
                 }
 
                 .header-text {
-                    margin-left: 1.5em;
-                    font-weight: 500;
+                  font-size: 17px;
+                  margin-left: 2.5em;
+                  font-weight: 500;
                 }
 
                 .save-creation-container {
