@@ -5,6 +5,7 @@
   box-sizing: border-box;
   color: white;
   font-family: "Roboto", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -34,7 +35,7 @@ body .page-content .profile-page .toolbar {
   width: 100%;
   height: 2.5em;
   padding: 0 0 0.5em 0;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
   font-weight: 500;
   font-size: 17px;
   user-select: none;
@@ -201,7 +202,7 @@ body .page-content .profile-page .profile-highlights-content .highlight-items .i
   justify-content: center;
   width: 100%;
   margin-top: 0.3em;
-  font-size: 10px;
+  font-size: 12px;
 }
 body .page-content .profile-page .profile-highlights-content .new-highlight-content {
   display: flex;
@@ -310,22 +311,22 @@ body .page-content .popup-content .popup-page.edit-profile-page .toolbar {
   justify-content: space-between;
   width: 100%;
   height: 2.5em;
-  padding: 0 0 0.5em 0;
+  padding: 0 1em 0 1em;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .toolbar .toolbar-items {
   display: inline-flex;
   width: 100%;
   align-items: center;
-}
-body .page-content .popup-content .popup-page.edit-profile-page .toolbar .toolbar-items .back-button {
-  border: none;
-  background: none;
-  font-size: 24px;
-  cursor: pointer;
+  /* .back-button {
+      border: none;
+      background: none;
+      font-size: 24px;
+      cursor: pointer;
+  } */
 }
 body .page-content .popup-content .popup-page.edit-profile-page .toolbar .toolbar-items .header-text {
   font-size: 17px;
-  margin-left: 2.5em;
+  margin-left: 2em;
   font-weight: 500;
 }
 body .page-content .popup-content .popup-page.edit-profile-page .toolbar .toolbar-items .save-modification-container {
@@ -431,7 +432,7 @@ body .page-content .popup-content .popup-page.edit-profile-page .editables-conta
 body .page-content .popup-content .popup-page.edit-profile-page .editables-container .change-information-content .inputs-content .input-content.biography-input-content .biography-input {
   display: flex;
   height: auto;
-  padding: 1.5em 1em 0 1em;
+  padding: 1.8em 1em 0 1em;
   margin: 0;
   resize: none;
 }
@@ -572,22 +573,22 @@ body .page-content .popup-content .popup-page.highlights .toolbar {
   justify-content: space-between;
   width: 100%;
   height: 2.5em;
-  padding: 0 0 0.5em 0;
+  padding: 0 1em 0 1em;
 }
 body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items {
   display: inline-flex;
   width: 100%;
   align-items: center;
-}
-body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .back-button {
-  border: none;
-  background: none;
-  font-size: 24px;
-  cursor: pointer;
+  /* .back-button {
+      border: none;
+      background: none;
+      font-size: 24px;
+      cursor: pointer;
+  } */
 }
 body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .header-text {
   font-size: 17px;
-  margin-left: 2.5em;
+  margin-left: 2em;
   font-weight: 500;
 }
 body .page-content .popup-content .popup-page.highlights .toolbar .toolbar-items .save-creation-container {
@@ -759,6 +760,9 @@ body .page-content .popup-content .popup-page.highlights .create-highlight .crea
   width: 100%;
   margin-top: 1em;
 }
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo {
+  position: relative;
+}
 body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo label {
   display: flex;
   width: 100%;
@@ -814,9 +818,10 @@ body .page-content .popup-content .popup-page.highlights .create-highlight .crea
   border-radius: 100%;
   overflow: hidden;
 }
-body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-pic .hg-pic-container img {
+body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-pic .hg-pic-container .hg-pic {
   width: 100%;
-  height: max-content;
+  height: 100%;
+  background-size: cover;
 }
 body .page-content .popup-content .popup-page.highlights .create-highlight .create-hg-page .creation-space .highlight-demo .manage-hg-text {
   position: absolute;

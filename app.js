@@ -72,6 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     };
 
+    const editProfile = new EditProfile(pageElements);
+    const menuHandler = new MenuHandler(pageElements);
+    const highlightHandler = new HighlightHandler(pageElements);
+
     // Adiciona a classe hidden em todos os popups quando clicado na seta de voltar ao perfil
     //LEMBRAR DE ADICIONAR POPUP DE SEGURANÇA 'TEM CERTEZA QUE NÃO DESEJA SALVAR?'
     pageElements.popup.backButton.forEach(button => {
@@ -90,39 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const editProfilePopUp = document.getElementById('edit-profile-popup');
         editProfilePopUp.classList.remove('hidden');
         pageElements.popup.editProfile.infoInputs.changeContentBtn.classList.add('disabled');
-        pageElements.popup.editProfile.infoInputs.changeContentBtn.disabled = true
+        pageElements.popup.editProfile.infoInputs.changeContentBtn.disabled = true;
 
-        connectInputs();
     });
+
 
 
     //Possibilita sortir os destaques do perfil
     new Sortable(pageElements.profilePage.highlight.itemsContainer, {
         animation: 150,
         ghostClass: 'ghost',
-        delay: 200,
+        delay: 100, // Ajuste conforme necessário
         delayOnTouchOnly: true,
-    })
 
-    //observer colocado para setar sortable novamente nos items da lista contendo os highlights
-    const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-
-                new Sortable(pageElements.profilePage.highlight.itemsContainer, {
-                    animation: 150,
-                    ghostClass: 'ghost',
-                    delay: 200,
-                    delayOnTouchOnly: true,
-                });
-            }
-        }
     });
-
-
-    observer.observe(pageElements.profilePage.highlight.itemsContainer, {
-        childList: true,
-    });
+    
 
     //Colocando os inputs com os valores respectivos do perfil
     function connectInputs(){
@@ -143,8 +129,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
     };
-
-    const editProfile = new EditProfile(pageElements);
-    const menuHandler = new MenuHandler(pageElements);
-    const highlightHandler = new HighlightHandler(pageElements);
 });

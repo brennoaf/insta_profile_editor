@@ -18,7 +18,7 @@ export class HighlightHandler{
 
             reader.onload = (event) =>{
                 var insertedImage = event.target.result;
-                highlights.creationPopup.hgImage.src = event.target.result;
+                highlights.creationPopup.hgImage.style.backgroundImage = `url('${event.target.result}')`;
                 
                 resolve(insertedImage)
 
@@ -149,7 +149,8 @@ export class HighlightHandler{
                     const hgPic = document.createElement('div');
                     hgPic.classList.add('highlight-pic');
 
-                    hgPic.style.backgroundImage = `url('${highlights.creationPopup.hgImage.src}')`;
+
+                    hgPic.style.backgroundImage = highlights.creationPopup.hgImage.style.backgroundImage;
 
 
                     
