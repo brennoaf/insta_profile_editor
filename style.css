@@ -10,7 +10,7 @@
 body {
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  height: fit-content;
   background-color: #0c0f14;
 }
 body header {
@@ -22,8 +22,9 @@ body .page-content {
 }
 body .page-content .profile-page {
   position: relative;
-  width: 350px;
   height: 100%;
+  width: 100vw;
+  max-width: 750px;
   padding: 0.5em;
 }
 body .page-content .profile-page .toolbar {
@@ -72,6 +73,7 @@ body .page-content .profile-page .user-info-content .first-line {
 }
 body .page-content .profile-page .user-info-content .first-line .profile-pic-content {
   display: flex;
+  flex-shrink: 0;
   width: 5em;
   aspect-ratio: 1;
   justify-content: center;
@@ -107,14 +109,13 @@ body .page-content .profile-page .user-info-content .first-line .profile-statist
   height: 100%;
   align-items: center;
   font-size: 11px;
+  width: 100%;
+  justify-content: space-around;
 }
 body .page-content .profile-page .user-info-content .first-line .profile-statistics-content .counter {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-body .page-content .profile-page .user-info-content .first-line .profile-statistics-content .counter.counter-divisor {
-  margin-right: 2em;
 }
 body .page-content .profile-page .user-info-content .second-line {
   display: grid;
@@ -285,15 +286,11 @@ body .page-content .popup-content .popup-page {
   z-index: 100;
   padding: 0.5em;
   user-select: none;
-}
-body .page-content .popup-content .popup-page.settings-page {
-  width: 250px;
-  height: 400px;
-  background-color: white;
+  max-width: 750px;
 }
 body .page-content .popup-content .popup-page.edit-profile-page {
   margin: auto;
-  width: 350px;
+  width: 100%;
   height: 100vh;
   background-color: #0c0f14;
 }
@@ -484,7 +481,7 @@ body .page-content .popup-content .popup-page.edit-profile-page .editables-conta
 body .page-content .popup-content .popup-page.menu {
   position: absolute;
   display: flex;
-  width: 350px;
+  width: 90%;
   bottom: 0;
   background-color: #262626;
   border-top-left-radius: 10px;
@@ -549,7 +546,7 @@ body .page-content .popup-content .popup-page.menu .options-container .border-ch
 }
 body .page-content .popup-content .popup-page.highlights {
   margin: auto;
-  width: 350px;
+  width: 100%;
   height: 100vh;
   background-color: #0c0f14;
 }
