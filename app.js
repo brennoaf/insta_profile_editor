@@ -1,7 +1,7 @@
-import { EditProfile } from './scripts/edit_profile.js';
-import { MenuHandler } from './scripts/menu.js';
-import {  HighlightHandler  } from './scripts/highlight_handler.js';
-import { ProfileFunctions } from './scripts/profile_page.js';
+import { EditProfile } from './src/scripts/edit_profile.js';
+import { MenuHandler } from './src/scripts/menu.js';
+import {  HighlightHandler  } from './src/scripts/highlight_handler.js';
+import { ProfileFunctions } from './src/scripts/profile_page.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const pageElements = {
