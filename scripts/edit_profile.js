@@ -7,6 +7,24 @@ export class EditProfile {
         this.setupInputs();
     }
 
+    async loadImage(file){
+        return new Promise((resolve, reject) =>{
+            const read = new FileReader();
+            const { editProfile } = this.pageElements.popup;
+
+            read.onload = (event) =>{
+                var insertedImage = event.target.result;
+                editProfile.infoInputs.actualPic.style.backgroundImage = `url('${event.target.result}')`;
+                
+                resolve(insertedImage)
+
+            };
+            read.onerror = reject;
+            read.readAsDataURL(file);
+
+        })
+    }
+
     //Cria e edita o dropdown
     setupDropdown() {
         const { dropdown } = this.pageElements.popup.editProfile;
@@ -76,13 +94,36 @@ export class EditProfile {
 
         });
 
+        //linkando e importando imagem
+        infoInputs.imageHitbox.addEventListener('input', async () => {
+            try {
+                const image = infoInputs.imageHitbox.files[0];
+                await this.loadImage(image);
+        
+                infoInputs.changeContentBtn.disabled = false;
+                infoInputs.changeContentBtn.classList.remove('disabled');
+            } catch (error) {
+                console.error('Erro:', error);
+
+            }
+        });
+
+
+
         infoInputs.bioTextArea.addEventListener('input', () => {
             this.changeBioTextArea(infoInputs.bioTextArea);
             this.bioLimitCounter(infoInputs.limitCounter, infoInputs.bioTextArea);
         });
 
         infoInputs.changeContentBtn.addEventListener('click', () =>{
-            this.modifyProfileInfo(infoInputs, profilePage, popups)
+            const { infoInputs } = this.pageElements.popup.editProfile
+
+            if(!infoInputs.usernameInput.value){
+                window.alert(`Please, insert a username!`);
+
+            }else{
+                this.modifyProfileInfo(infoInputs, profilePage, popups)
+            }
         })
     }
 
@@ -127,7 +168,10 @@ export class EditProfile {
 
             else if(input.classList.contains('biography-input')){
                 profilePage.userBiography.textContent = input.value;
+
             }
+
+            profilePage.profilePic.style.backgroundImage = infoInputs.actualPic.style.backgroundImage;
         })
         
         popups.forEach(popup => {

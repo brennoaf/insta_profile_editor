@@ -36,7 +36,7 @@ export class HighlightHandler{
         saveBtn.classList.add('disabled');
         hgTxtInput.value = '';
         hgTxt.textContent = 'Highlight';
-        hgImage.src = '';
+        hgImage.style.backgroundImage = '';
 
         //TENTANDO LIMPAR INPUT NOS BROWSERS
         hgImgInput.value = null;
@@ -74,7 +74,7 @@ export class HighlightHandler{
     creationManager(originalInput, changedInput){
         const { highlights } = this.pageElements.popup;
         resetListener(highlights.creationPopup.highlightsContainer);
-        const maxOffset = 138;
+        const maxOffset = 160;
         
         // Iterando o texto para adaptar ao offset
         function adjustTextToFit(element, maxWidth, originalText) {
@@ -108,6 +108,11 @@ export class HighlightHandler{
         
             if (highlights.creationPopup.hgTxt.offsetWidth > maxOffset) {
                 changedInput = adjustTextToFit(highlights.creationPopup.hgTxt, maxOffset, highlights.creationPopup.hgTxtInput.value.trim());
+            }
+
+            if(!highlights.creationPopup.hgTxtInput.value){
+                highlights.creationPopup.hgTxt.textContent = 'Highlight';
+
             }
 
             highlights.creationPopup.saveCreationBtn.disabled = false;
@@ -151,7 +156,6 @@ export class HighlightHandler{
 
 
                     hgPic.style.backgroundImage = highlights.creationPopup.hgImage.style.backgroundImage;
-
 
                     
                     //Criando container de texto

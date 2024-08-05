@@ -1,6 +1,7 @@
 import { EditProfile } from './scripts/edit_profile.js';
 import { MenuHandler } from './scripts/menu.js';
 import {  HighlightHandler  } from './scripts/highlight_handler.js';
+import { ProfileFunctions } from './scripts/profile_page.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const pageElements = {
@@ -10,9 +11,27 @@ document.addEventListener('DOMContentLoaded', function() {
             userBiography: document.querySelector('.biography-text'),
             profilePicBorder: document.querySelector('.pic-border'),
             profilePicWrapper: document.querySelector('.pic-wrapper'),
+            profilePic: document.querySelector('.profile-pic'),
 
             newHighlight: document.querySelector('.new-highlight-content'),
             editProfileBtn: document.querySelector('.edit-profile'),
+
+            publication:{
+                publicationsItems: document.querySelector('.publications-items'),
+
+                newPubButton: document.querySelector('.new-publication'),
+                attButton: document.querySelector('.attachment-button'),
+                buttonHitbox: document.getElementById('new-publication-file'),
+
+                content: document.querySelector('.new-publication-content'),
+                publicationImage: document.querySelector('.publication-image'),
+                saveCreationBtn: document.querySelectorAll('.save-creation-container')[0],
+                attachmentImage: document.querySelector('.image-attachment'),
+
+                pubMenu: document.querySelector('.pub-menu-container'),
+                blurBg: document.querySelector('.pub-focus-background'),
+
+            },
 
             highlight: {
                 itemsContainer: document.querySelector('.highlight-items'),
@@ -33,17 +52,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 infoInputs: {
                     input: document.querySelectorAll('.change-input'),
+                    usernameInput: document.getElementById('username'),
                     placeholder: document.querySelectorAll('.custom-placeholder'),
                     bioTextArea: document.getElementById('biography-textarea'),
                     limitCounter: document.querySelector('.limit-counter'),
                     changeContentBtn: document.querySelector('.save-modification-container'),
+
+                    imageHitbox: document.querySelector('#profile-pic-file'),
+                    actualPic: document.querySelector('.actual-picture'),
                 },
             },
 
             menu: {
                 dropdown:{
-                    button: document.querySelectorAll('.dropdown-button')[1],
-                    content: document.querySelectorAll('.dropdown-content')[1],
+                    button: document.querySelector('.border-choose'),
+                    content: document.querySelectorAll('.dropdown-content')[2],
                 },
 
                 content: document.querySelectorAll('.menu')[1],
@@ -53,13 +76,13 @@ document.addEventListener('DOMContentLoaded', function() {
             },
 
             highlights: {
-                content:document.querySelectorAll('.popup-content')[3],
+                content:document.querySelectorAll('.popup-content')[4],
                 openPopup: document.querySelector('.new-highlight'),
 
                 creationPopup: {
                     content: document.querySelector('.create-highlight'),
                     close: document.querySelector('.space-close'),
-                    saveCreationBtn: document.querySelector('.save-creation-container'),
+                    saveCreationBtn: document.querySelectorAll('.save-creation-container')[1],
                     imagePreview: document.querySelector('.highlight-demo'),
                     hgImage: document.querySelector('.hg-pic'),
                     imageHitbox: document.getElementById('hg-pic-file'),
@@ -72,9 +95,12 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     };
 
+    console.log(pageElements.popup.menu.dropdown.button)
+
     const editProfile = new EditProfile(pageElements);
     const menuHandler = new MenuHandler(pageElements);
     const highlightHandler = new HighlightHandler(pageElements);
+    const profileFunctions = new ProfileFunctions(pageElements);
 
     // Adiciona a classe hidden em todos os popups quando clicado na seta de voltar ao perfil
     //LEMBRAR DE ADICIONAR POPUP DE SEGURANÇA 'TEM CERTEZA QUE NÃO DESEJA SALVAR?'
@@ -102,6 +128,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Possibilita sortir os destaques do perfil
     new Sortable(pageElements.profilePage.highlight.itemsContainer, {
+        animation: 150,
+        ghostClass: 'ghost',
+        delay: 100, // Ajuste conforme necessário
+        delayOnTouchOnly: true,
+
+    });
+
+    new Sortable(pageElements.profilePage.publication.publicationsItems, {
         animation: 150,
         ghostClass: 'ghost',
         delay: 100, // Ajuste conforme necessário

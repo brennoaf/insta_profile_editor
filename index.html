@@ -10,18 +10,32 @@
 <body>
     <main>
         <div class="page-content">
+            <div class="pub-menu-container">
+                <div class="pub-menu-dropdown">
+                    <a href="#" data-value="Delete">
+                        <span><i class="gg-trash-empty"></i>Delete</span>
+                    </a>
+                    <a href="#" data-value="Carousel">
+                        <span><img src="src/assets/icons/pin_icon.png" style="width: 1.4em; aspect-ratio: 1;">Pin</span>
+                    </a>
+                </div>
+            </div>
             <div class="profile-page">
                 <div class="profile-information-content">
                     <div class="toolbar">
                         <div class="username-content">
                             <div class="username-text-content" style="display: inline-flex;">
                                 <p class="username-text">user_username</p>
-                                <span style="margin: -.3em 0 0 .3em">⌄</span>
+                                <i class="gg-chevron-down" style="--ggs: .6;"></i>
                             </div>
                         </div>
                         <div class="toolbar-profile-content">
                             <div class="new-publication toolbar-item">
                                 <img src="https://cdn-icons-png.flaticon.com/512/6537/6537820.png" class="item-icon" draggable="false">
+                                <span style="width: 100%; height: 100%; position: absolute; " class="pic-hitbox">
+                                    <label for="new-publication-file"></label>
+                                    <input id="new-publication-file" style="visibility:hidden; font-size: 1px;" type="file" accept="image/png, image/jpeg">
+                                </span>
                             </div>
                             <div class="menu toolbar-item">
                                 <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/hamburger_menu_icon_144302.png" class="item-icon menu-button" draggable="false">
@@ -32,7 +46,7 @@
                         <div class="first-line">
                             <div class="profile-pic-content pic-border">
                                 <div class="pic-wrapper">
-                                    <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5e3d34ac51d0aa1edcde3c5f/44884218_345707102882519_2446069589734326272_n.jpg" class="profile-pic">
+                                    <span style="background-image:url(https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5e3d34ac51d0aa1edcde3c5f/44884218_345707102882519_2446069589734326272_n.jpg)" class="profile-pic"></span>
                                 </div>
                             </div>
                             <span style="margin-left: 2em;"></span>
@@ -70,6 +84,7 @@
                     </div>
                     <div class="profile-highlights-content">
                         <ul class="highlight-items">
+                            <!--
                             <li class="item 1">
                                 <div class="highlight-pic-content">
                                     <img class="highlight-pic" src="">
@@ -94,6 +109,7 @@
                                     <div class="highlight-text"><p>me</p></div>
                                 </div>
                             </li>
+                        -->
                         </ul>
                         <div class="new-highlight-content">
                             <div class="new-highlight-sign">
@@ -114,7 +130,83 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/1947/1947210.png" style="filter: invert();" class="option-icon">
                         </button>
                     </div>
-                    <div class="publications-page"></div>
+                    <div class="publications-page">
+                        <div class="publications-items">
+                            <div class="pub-focus-background"></div>
+                            <!---
+                            <span class="pub-container">
+                                <div class="pub-item">
+                                    <span class="pub-attachment"></span>
+                                    <div class="pub-picture"></div>
+                                </div>
+                            </span>
+                            <div class="pub-container">
+                                <div class="pub-item">
+                                    <div class="pub-attachment"></div>
+                                    <div class="pub-picture"></div>
+                                </div>
+                            </div>
+                            <div class="pub-container">
+                                <div class="pub-item">
+                                    <div class="pub-attachment"></div>
+                                    <div class="pub-picture"></div>
+                                </div>
+                            </div>
+                        -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="new-publication-content popup-content hidden">
+                <div class="popup-background"></div>
+                <div class="new-publication popup-page new-publication-page">
+                    <header class="toolbar">
+                        <div class="toolbar-items">
+                            <i class="gg-close creation-close" style="--ggs: 1.2; cursor: pointer;"></i>
+                            <div class="header-text" style="width:fit-content;"><p>Create highlight<p></div>
+                            <button class="save-creation-container disabled" disabled="true">
+                                <img src="https://cdn-icons-png.freepik.com/512/9136/9136003.png" class="save-icon">
+                            </button>
+                        </div>
+                    </header>
+                    <div class="page-content">
+                        <div class="publication-image-content">
+                            <span class="image-attachment"></span>
+                            <div class="publication-image-container">
+                                <span class="publication-image"></span>
+                            </div>
+                        </div>
+                        <div class="config-publication-content">
+                            <div class="set-attachment-content dropdown">
+                                <button class="dropdown-button attachment-button">
+                                    Attachment
+                                    <span>
+                                        <i class="gg-chevron-right"></i>
+                                    </span>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="#" data-value="Carousel">
+                                        <span>
+                                            <img src="src/assets/icons/carousel_icon.png" class="carousel-icon">
+                                            Carousel
+                                        </span>
+                                    </a>
+                                    <a href="#" data-value="Reels">
+                                        <span>
+                                            <img src="src/assets/icons/reels_icon_blur.png" class="carousel-icon">
+                                            Reels
+                                        </span>
+                                    </a>
+                                    <a href="#" data-value="None">
+                                        <span>
+                                            <img src="src/assets/icons/none_attachment_icon.png" class="carousel-icon">
+                                            None
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="settings popup-content hidden">
@@ -128,7 +220,7 @@
                 <div class="edit-profile-page popup-page">
                     <header class="toolbar">
                         <div class="toolbar-items">
-                            <i class="gg-arrow-left back-button" style="--ggs: 1.2;"></i>
+                            <i class="gg-arrow-left back-button" style="--ggs: 1.2; cursor: pointer;"></i>
                             <div class="header-text" style="width:fit-content;"><p>Editar perfil<p></div>
                             <button class="save-modification-container disabled" disabled="true">
                                 <img src="https://cdn-icons-png.freepik.com/512/9136/9136003.png" class="save-icon">
@@ -139,7 +231,11 @@
                         <div class="change-picture-content">
                             <div class="picture-and-avatar-container">
                                 <div class="profile editable-picture-container">
-                                    <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5e3d34ac51d0aa1edcde3c5f/44884218_345707102882519_2446069589734326272_n.jpg" class="actual-picture">
+                                    <span style="width: 100%; height: 100%; position: absolute; " class="pic-hitbox">
+                                        <label for="profile-pic-file"></label>
+                                        <input id="profile-pic-file" style="visibility:hidden;" type="file" accept="image/png, image/jpeg">
+                                    </span>
+                                    <div style="background-image:url(https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5e3d34ac51d0aa1edcde3c5f/44884218_345707102882519_2446069589734326272_n.jpg)" class="actual-picture"></div>
                                 </div>
                                 <div class="avatar editable-picture-container">SOON</div>
                             </div>
@@ -156,7 +252,7 @@
                                 </div>
                                 <div class="username-input-content input-content">
                                     <label class="custom-placeholder">Nome de usuário</label>
-                                    <input type="text" class="username-input change-input">
+                                    <input type="text" class="username-input change-input" id="username">
                                 </div>
                                 <div class="pronouns-input-content input-content">
                                     <label class="custom-placeholder">Pronomes</label>
@@ -213,7 +309,7 @@
                 <div class="highlights popup-page">
                     <header class="toolbar">
                         <div class="toolbar-items">
-                            <i class="gg-arrow-left back-button" style="--ggs: 1.2;"></i>
+                            <i class="gg-arrow-left back-button" style="--ggs: 1.2; cursor: pointer;"></i>
                             <div class="header-text" style="width:fit-content;"><p>Manage highlights<p></div>
                         </div>
                     </header>
@@ -250,7 +346,7 @@
                         <div class="create-hg-page">
                             <header class="toolbar">
                                 <div class="toolbar-items">
-                                    <button class="space-close">🡠</button>
+                                    <i class="gg-arrow-left space-close" style="--ggs: 1.2; cursor: pointer;"></i>
                                     <div class="header-text" style="width:fit-content;"><p>Create highlight<p></div>
                                     <button class="save-creation-container disabled" disabled="true">
                                         <img src="https://cdn-icons-png.freepik.com/512/9136/9136003.png" class="save-icon">

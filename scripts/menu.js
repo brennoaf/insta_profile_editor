@@ -16,7 +16,7 @@ export class MenuHandler{
 
         //escondendo dropdown se clicar fora do objeto
         window.addEventListener('click', (event) => {
-            if (!event.target.matches('.dropdown-button')) {
+            if (!event.target.matches('.border-choose')) {
                 if (dropdown.content.classList.contains('show')) {
                     dropdown.content.classList.remove('show');
                 }
