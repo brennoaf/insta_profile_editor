@@ -57,19 +57,26 @@ export class ProfileFunctions{
                 publication.pubMenu.style.display = 'block';
                 publication.blurBg.style.display = 'inherit';
 
+                setTimeout(() => {
+                    publication.blurBg.style.opacity = '100%';
+                }, 10);
+
                 lastSelect = event.target;
                 lastSelect.style.zIndex = '100';
 
             }else{
                 publication.pubMenu.style.display = 'none';
-                publication.blurBg.style.display = 'none';
+                publication.blurBg.style.opacity = '';
 
-                console.log(lastSelect);
-                if(lastSelect){
-                    console.log(lastSelect)
-                    lastSelect.style.zIndex = ''
-                    lastSelect = null
-                }
+                setTimeout(() => {
+                    publication.blurBg.style.display = 'none';
+                    
+                    if(lastSelect){
+                        lastSelect.style.zIndex = ''
+                        lastSelect = null
+                    }
+                }, 100);
+
                 
             }
 
