@@ -64,7 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
             },
 
             menu: {
-                dropdown:{
+                borderDropdown:{
+                    button: document.querySelector('.border-choose'),
+                    content: document.querySelectorAll('.dropdown-content')[2],
+                },
+
+                quantityDropdown:{
                     button: document.querySelector('.border-choose'),
                     content: document.querySelectorAll('.dropdown-content')[2],
                 },
@@ -95,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     };
 
-    console.log(pageElements.popup.menu.dropdown.button)
+    console.log(pageElements.popup.menu.borderDropdown)
 
     const editProfile = new EditProfile(pageElements);
     const menuHandler = new MenuHandler(pageElements);

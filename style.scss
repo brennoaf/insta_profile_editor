@@ -1026,6 +1026,48 @@ body {
                   }
               }
               }
+
+              .change-profile-numbers{
+                .change{
+                  display: flex;
+                  flex-direction: column;
+                }
+              
+                .set-line{
+                  .quantity-dropdown{
+                    position: absolute;
+                
+                    font-size: 12px;
+                    background-color: #12171f;
+                    z-index: 1;
+                    border-radius: 5px;
+                    overflow: hidden;
+            
+                    a{
+                      display: block;
+                      padding: 12px;
+                      text-decoration: none;
+            
+                      span{
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 5em;
+                      }
+            
+                      &:hover{
+                          background-color: #282b30;
+                      }
+                    }
+            
+                    &.show{
+                        display: flex;
+                    }
+                  }
+                }
+
+              }
             }
         }
 

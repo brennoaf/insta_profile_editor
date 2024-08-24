@@ -813,6 +813,36 @@ body .page-content .popup-content .popup-page.menu .options-container .border-ch
 body .page-content .popup-content .popup-page.menu .options-container .border-choose-content.dropdown .dropdown-content.show {
   display: block;
 }
+body .page-content .popup-content .popup-page.menu .options-container .change-profile-numbers .change {
+  display: flex;
+  flex-direction: column;
+}
+body .page-content .popup-content .popup-page.menu .options-container .change-profile-numbers .set-line .quantity-dropdown {
+  position: absolute;
+  font-size: 12px;
+  background-color: #12171f;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+body .page-content .popup-content .popup-page.menu .options-container .change-profile-numbers .set-line .quantity-dropdown a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+body .page-content .popup-content .popup-page.menu .options-container .change-profile-numbers .set-line .quantity-dropdown a span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 5em;
+}
+body .page-content .popup-content .popup-page.menu .options-container .change-profile-numbers .set-line .quantity-dropdown a:hover {
+  background-color: #282b30;
+}
+body .page-content .popup-content .popup-page.menu .options-container .change-profile-numbers .set-line .quantity-dropdown.show {
+  display: flex;
+}
 body .page-content .popup-content .popup-page.highlights {
   margin: auto;
   width: 100%;

@@ -6,19 +6,19 @@ export class MenuHandler{
     }
 
     setupDropdown() {
-        const { dropdown } = this.pageElements.popup.menu;
+        const { borderDropdown } = this.pageElements.popup.menu;
         const { profilePage } = this.pageElements;
-        const dropdownOptions = dropdown.content.querySelectorAll('a');
+        const dropdownOptions = borderDropdown.content.querySelectorAll('a');
 
-        dropdown.button.addEventListener('click', () => {
-            dropdown.content.classList.toggle('show');
+        borderDropdown.button.addEventListener('click', () => {
+            borderDropdown.content.classList.toggle('show');
         });
 
         //escondendo dropdown se clicar fora do objeto
         window.addEventListener('click', (event) => {
             if (!event.target.matches('.border-choose')) {
-                if (dropdown.content.classList.contains('show')) {
-                    dropdown.content.classList.remove('show');
+                if (borderDropdown.content.classList.contains('show')) {
+                    borderDropdown.content.classList.remove('show');
                 }
             }
         });
@@ -28,8 +28,8 @@ export class MenuHandler{
             option.addEventListener('click', (event) => {
                 event.preventDefault();
                 const selectedValue = option.getAttribute('data-value');
-                dropdown.button.textContent = selectedValue;
-                dropdown.content.classList.remove('show');
+                borderDropdown.button.textContent = selectedValue;
+                borderDropdown.content.classList.remove('show');
 
                 if(selectedValue === 'None'){
                     profilePage.profilePicWrapper.style.padding = '';
