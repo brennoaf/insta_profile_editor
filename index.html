@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href='https://css.gg/css' rel='stylesheet'>
+    <link rel="stylesheet" href="./src/styles/profile_page/style.css">
 </head>
 <body>
     <main>
@@ -13,7 +12,9 @@
             <div class="pub-menu-container">
                 <div class="pub-menu-dropdown">
                     <a href="#" data-value="Delete">
-                        <span><i class="gg-trash-empty"></i>Delete</span>
+                        <span><svg width="24" height="24" viewBox="4 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 6V5C17 3.89543 16.1046 3 15 3H9C7.89543 3 7 3.89543 7 5V6H4C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8H5V19C5 20.6569 6.34315 22 8 22H16C17.6569 22 19 20.6569 19 19V8H20C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6H17ZM15 5H9V6H15V5ZM17 8H7V19C7 19.5523 7.44772 20 8 20H16C16.5523 20 17 19.5523 17 19V8Z" fill="currentColor"/></svg>
+                            Delete
+                        </span>
                     </a>
                     <a href="#" data-value="Pin">
                         <span><img src="src/assets/icons/pin_icon.png" style="width: 1.4em; aspect-ratio: 1;">Pin</span>
@@ -29,7 +30,7 @@
                         <div class="username-content">
                             <div class="username-text-content" style="display: inline-flex;">
                                 <p class="username-text">user_username</p>
-                                <i class="gg-chevron-down" style="--ggs: .6;"></i>
+                                <svg width="24" height="24" viewBox="-5 0 33 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"/></svg>
                             </div>
                         </div>
                         <div class="toolbar-profile-content">
@@ -55,15 +56,15 @@
                             <span style="margin-left: 2em;"></span>
                             <div class="profile-statistics-content">
                                 <div class="counter publications-content counter-divisor">
-                                    <h3>0</h3>
+                                    <h3 class="publications-number">0</h3>
                                     <p>publicações</p>
                                 </div>
                                 <div class="counter followers-content counter-divisor">
-                                    <h3>0</h3>
+                                    <h3 class="followers-number">0</h3>
                                     <p>seguidores</p>
                                 </div>
                                 <div class="counter following-content">
-                                    <h3>0</h3>
+                                    <h3 class="following-number">0</h3>
                                     <p>seguindo</p>
                                 </div>
                             </div>
@@ -74,7 +75,7 @@
                                     <h3 class="profile-name-text">User Username</h3>
                                 </div>
                                 <div class="profile-optional-tag"></div>
-                                <div class="profile-biography" style="width: 10em; position: relative;">
+                                <div class="profile-biography">
                                     <span class="biography-text" style="display: block; width: 100%;">This is a biography.</span>
                                 </div>
                                 <div class="profile-optional-music"></div>
@@ -165,7 +166,7 @@
                 <div class="new-publication popup-page new-publication-page">
                     <header class="toolbar">
                         <div class="toolbar-items">
-                            <i class="gg-close creation-close" style="--ggs: 1.2; cursor: pointer;"></i>
+                            <svg class="creation-close" style="cursor: pointer;" width="24" height="24" viewBox="-2 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z" fill="currentColor"/></svg>
                             <div class="header-text" style="width:fit-content;"><p>Create highlight<p></div>
                             <button class="save-creation-container disabled" disabled="true">
                                 <img src="https://cdn-icons-png.freepik.com/512/9136/9136003.png" class="save-icon">
@@ -184,7 +185,7 @@
                                 <button class="dropdown-button attachment-button">
                                     Attachment
                                     <span>
-                                        <i class="gg-chevron-right"></i>
+                                        <svg width="24" height="24" viewBox="0 -2 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z" fill="currentColor"/></svg>
                                     </span>
                                 </button>
                                 <div class="dropdown-content">
@@ -223,7 +224,7 @@
                 <div class="edit-profile-page popup-page">
                     <header class="toolbar">
                         <div class="toolbar-items">
-                            <i class="gg-arrow-left back-button" style="--ggs: 1.2; cursor: pointer;"></i>
+                            <svg class='back-button' width="24" height="24" viewBox="0 1 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor"/></svg>
                             <div class="header-text" style="width:fit-content;"><p>Editar perfil<p></div>
                             <button class="save-modification-container disabled" disabled="true">
                                 <img src="https://cdn-icons-png.freepik.com/512/9136/9136003.png" class="save-icon">
@@ -333,18 +334,22 @@
                 <div class="highlights popup-page">
                     <header class="toolbar">
                         <div class="toolbar-items">
-                            <i class="gg-arrow-left back-button" style="--ggs: 1.2; cursor: pointer;"></i>
+                            <svg class='back-button' style="cursor: pointer;" width="24" height="24" viewBox="0 1 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor"/></svg>
                             <div class="header-text" style="width:fit-content;"><p>Manage highlights<p></div>
                         </div>
                     </header>
                     <div class="highlights highlights-content">
                         <div class="manage-highlight-items">
-                        <!--<div class="mockup-item 1">
+                            <!--
+                        <div class="mockup-item 1">
                                 <div class="highlight-pic-content">
                                     <div class="hide-highlight">
-                                        usar toggle na class não carrega o ícone
-                                        <i class="gg-eye"></i>
-                                        <i class="gg-border-style-solid off"></i>
+                                        <span>
+                                            <svg width="24" height="24" viewBox="-3 -3 29 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12ZM14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C17.5915 3 22.2898 6.82432 23.6219 12C22.2898 17.1757 17.5915 21 12 21C6.40848 21 1.71018 17.1757 0.378052 12C1.71018 6.82432 6.40848 3 12 3ZM12 19C7.52443 19 3.73132 16.0581 2.45723 12C3.73132 7.94186 7.52443 5 12 5C16.4756 5 20.2687 7.94186 21.5428 12C20.2687 16.0581 16.4756 19 12 19Z" fill="currentColor"/></svg>
+                                        </span>
+                                        <span>
+                                            <svg class='off' width="24" height="24" viewBox="-3 -3 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M2 11H22V13H2V11Z" fill="currentColor"/></svg>
+                                        </span>
                                     </div>
                                     <div class="highlight-pic"></div>
                                 </div>
@@ -370,7 +375,7 @@
                         <div class="create-hg-page">
                             <header class="toolbar">
                                 <div class="toolbar-items">
-                                    <i class="gg-arrow-left space-close" style="--ggs: 1.2; cursor: pointer;"></i>
+                                    <svg class='space-close' width="24" height="24" viewBox="0 1 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor"/></svg>
                                     <div class="header-text" style="width:fit-content;"><p>Create highlight<p></div>
                                     <button class="save-creation-container disabled" disabled="true">
                                         <img src="https://cdn-icons-png.freepik.com/512/9136/9136003.png" class="save-icon">
@@ -387,7 +392,7 @@
                                     <div class="manage-hg-pic">
                                         <div class="edit-pic-container">
                                             <button class="edit-pic">
-                                                <i class="gg-attachment"></i>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 0C16.7614 0 19 2.23858 19 5V17C19 20.866 15.866 24 12 24C8.13401 24 5 20.866 5 17V9H7V17C7 19.7614 9.23858 22 12 22C14.7614 22 17 19.7614 17 17V5C17 3.34315 15.6569 2 14 2C12.3431 2 11 3.34315 11 5V17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17V6H15V17C15 18.6569 13.6569 20 12 20C10.3431 20 9 18.6569 9 17V5C9 2.23858 11.2386 0 14 0Z"/></svg>
                                             </button>
                                         </div>
                                         <div class="hg-pic-container">

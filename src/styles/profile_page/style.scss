@@ -226,7 +226,7 @@ body {
             }
 
             .profile-biography {
-              width: 10em;
+              width: 100%;
               position: relative;
 
               .biography-text {
@@ -261,9 +261,25 @@ body {
       .profile-highlights-content {
         display: flex;
         margin-top: 1em;
-        scroll-snap-type: x mandatory;
-        overflow-x: auto;
+        scroll-snap-type: none;
+        overflow-x: hidden;
         scroll-behavior: smooth;
+
+        &:hover{
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+        }
+
+        &::-webkit-scrollbar{
+          height: 8px;
+          background-color: none;
+          
+        }
+
+        &::-webkit-scrollbar-thumb{
+          background-color: $border-color;
+          border-radius: 5px;
+        }
 
         .highlight-items{
           display: flex;
@@ -403,7 +419,7 @@ body {
           position: relative;
           display: flex;
           justify-content: center;
-          width: 100%;
+
           
           .publications-items{
             position: absolute;
@@ -413,8 +429,8 @@ body {
             height: 100%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            column-gap: .15em;
-            row-gap: .15em;
+            column-gap: .1em;
+            row-gap: .1em;
 
             
             .pub-focus-background{
@@ -433,7 +449,7 @@ body {
             }
 
             .pub-container{
-
+              
               &.ghost{
                 opacity: 0.5;
   
@@ -445,6 +461,7 @@ body {
                 width: 100%;
                 aspect-ratio: 1;
                 background: blue;
+                overflow: hidden;
 
                 .pub-attachment{
                   position: absolute;
@@ -456,6 +473,7 @@ body {
                   
                   opacity: 90%;
                   background-size: cover;
+                  background-position-x: center;
                   pointer-events: none;
 
                 }
@@ -1168,7 +1186,7 @@ body {
                   .hide-highlight{
                     display: flex;
                     position: absolute; 
-                    width: 22px;
+                    width: 30px;
                     aspect-ratio: 1;
                     justify-content: center;
                     align-items: center;
@@ -1178,21 +1196,9 @@ body {
                     background: $background-color;
                     border-radius: 100%;
 
-                    i{
-                      display: flex;
-                      position: absolute;
-                      justify-content: center;
-                      --ggs: .6;
-                      width: 120%;
-                      color: white;
-                      font-size: 30px;
-                    
+                    svg{
                       &.off{
                         display: none;
-                      }
-
-                      &.gg-border-style-solid{
-                        --ggs: .49;
                       }
                     }
                   }
@@ -1369,8 +1375,10 @@ body {
                         border-radius: 100%;
                         background-color: white;
 
-                        i{
-                          color: $popup-background;
+                        svg{
+                          path{
+                            fill: $popup-background;
+                          }
                         }
                       }
                     }

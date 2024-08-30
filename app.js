@@ -2,6 +2,8 @@ import { EditProfile } from './src/scripts/edit_profile.js';
 import { MenuHandler } from './src/scripts/menu.js';
 import {  HighlightHandler  } from './src/scripts/highlight_handler.js';
 import { ProfileFunctions } from './src/scripts/profile_page.js';
+//import { FetchProfileData } from './src/scripts/fetch_data/get_profile_data.js';
+import { ScrapedProfileData } from './src/scripts/fetch_data/scraped_profile_data.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const pageElements = {
@@ -9,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
             userUsername: document.querySelector('.username-text'),
             userName: document.querySelector('.profile-name-text'),
             userBiography: document.querySelector('.biography-text'),
+            postQuantity: document.querySelector('.publications-number'),
+            followersQuantity: document.querySelector('.followers-number'),
+            followingQuantity: document.querySelector('.following-number'),
             profilePicBorder: document.querySelector('.pic-border'),
             profilePicWrapper: document.querySelector('.pic-wrapper'),
             profilePic: document.querySelector('.profile-pic'),
@@ -106,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuHandler = new MenuHandler(pageElements);
     const highlightHandler = new HighlightHandler(pageElements);
     const profileFunctions = new ProfileFunctions(pageElements);
+    //const fetchProfileData = new FetchProfileData(pageElements);
+    const scrapedProfileData = new ScrapedProfileData(pageElements);
 
     // Adiciona a classe hidden em todos os popups quando clicado na seta de voltar ao perfil
     //LEMBRAR DE ADICIONAR POPUP DE SEGURANÇA 'TEM CERTEZA QUE NÃO DESEJA SALVAR?'

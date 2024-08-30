@@ -1,3 +1,5 @@
 /scripts/get_info_by_user.js
-/src/instagram_auth/.env
-/src/instagram_auth/node_modules/
+backend/src/instagram_auth/.env
+backend/src/instagram_auth/node_modules/
+test.html
+script.js
