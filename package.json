@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "vercel dev"
+    "start": "node backend/src/instagram_auth/scraper.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.4",
     "path": "^0.12.7",
-    "puppeteer": "^23.2.0"
+    "puppeteer-core": "^18.0.5",
+    "@sparticuz/chromium": "106"
   }
 }

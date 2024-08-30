@@ -6,6 +6,11 @@ import fetch from 'node-fetch';
 const app = express();
 app.use(cors());
 
+app.get('/test', (req, res) => {
+  res.send('Backend está funcionando!');
+});
+
+
 app.get('/scraped-profile', async (req, res) => {
   const urlUsername = req.query.username;
 

@@ -25,7 +25,7 @@ export class ScrapedProfileData {
                 
             }
 
-            const scrapedProfileResponse = await fetch(`https://insta-profile-editor.vercel.app/scraped-profile?username=${username}`);
+            const scrapedProfileResponse = await fetch(`https://insta-profile-editor.vercel.app/api/scraped-profile?username=${username}`);
             const scrapedProfileData = await scrapedProfileResponse.json();
 
 
@@ -58,7 +58,7 @@ export class ScrapedProfileData {
                 throw new Error('Conteúdo de publicações não encontrado.');
             }
         
-        const scrapedPostResponse = await fetch(`https://insta-profile-editor.vercel.app/scraped-publications?username=${username}`);
+        const scrapedPostResponse = await fetch(`https://insta-profile-editor.vercel.app/api/scraped-publications?username=${username}`);
         const scrapedPostData = await scrapedPostResponse.json();
 
         this.setPostData({ scrapedPost: scrapedPostData });
