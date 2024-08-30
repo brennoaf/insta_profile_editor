@@ -64,7 +64,6 @@ export class ScrapedProfileData {
         this.setPostData({ scrapedPost: scrapedPostData });
 
         }catch(error){
-            console.log(this.initialError)
             if(!this.initialError){
                 window.alert(`${error}\nVerifique se o perfil é público ou tente novamente mais tarde.`);
             }

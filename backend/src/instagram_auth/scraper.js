@@ -50,12 +50,10 @@ app.get('/scraped-profile', async (req, res) => {
   } catch (error) {
     console.error('Error fetching profile information:', error);
     res.status(500).json({ error: 'Failed to fetch profile information' });
+    await browser.close();
 
-  }finally {
-    if (browser) {
-      await browser.close();  // Certifique-se de fechar o navegador mesmo se ocorrer um erro
-    }
   }
+
 });
 
 
