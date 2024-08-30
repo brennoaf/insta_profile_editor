@@ -105,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     };
 
-    console.log(pageElements.popup.menu.borderDropdown)
 
     const editProfile = new EditProfile(pageElements);
     const menuHandler = new MenuHandler(pageElements);
