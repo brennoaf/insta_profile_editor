@@ -1,0 +1,11 @@
+{
+    "routes": [
+      { "src": "/", "dest": "/index.html" },
+      { "src": "/api/(.*)", "dest": "/backend/src/instagram_auth/scraper.js" }
+    ],
+    "builds": [
+      { "src": "backend/src/instagram_auth/scraper.js", "use": "@vercel/node" },
+      { "src": "index.html", "use": "@vercel/static" }
+    ]
+  }
+  

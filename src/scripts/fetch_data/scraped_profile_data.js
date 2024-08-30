@@ -74,14 +74,12 @@ export class ScrapedProfileData {
 
     setPostData(data) {
         const { profilePage } = this.pageElements;
-        console.log(data.scrapedPost.posts);
 
         data.scrapedPost.posts.forEach(pub => {
             this.createPublication(pub);
         });
 
         data.scrapedPost.highlightData.forEach(highlight => {
-            console.log(highlight)
             this.createHighlight(highlight.title, highlight.image)
         })
 
@@ -204,9 +202,6 @@ export class ScrapedProfileData {
 
         let newHg  = settingHighlight('mockup-item', 'div');
         let newItemHg = settingHighlight('item', 'li');
-        
-
-        console.log(newHg)
 
         //Adicionando filhos aos respectivos pais
         highlightsContainer.appendChild(newHg);
@@ -223,7 +218,6 @@ export class ScrapedProfileData {
 
                 childClone.addEventListener('click', () =>{
                     childClone.classList.toggle('hidden')
-                    console.log(childClone.childNodes[0].childNodes[0].childNodes[0].childNodes[1])
                     childClone.childNodes[0].childNodes[0].childNodes[0].childNodes[1].classList.toggle('off');
                     childClone.childNodes[0].childNodes[0].childNodes[1].childNodes[1].classList.toggle('off');
                     
