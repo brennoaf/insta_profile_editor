@@ -1,11 +1,10 @@
 {
-    "routes": [
-      { "src": "/", "dest": "/index.html" },
-      { "src": "/api/(.*)", "dest": "/backend/src/instagram_auth/scraper.js" }
-    ],
-    "builds": [
-      { "src": "backend/src/instagram_auth/scraper.js", "use": "@vercel/node" },
-      { "src": "index.html", "use": "@vercel/static" }
-    ]
-  }
-  
+  "builds": [
+    { "src": "public/**/*", "use": "@vercel/static" },
+    { "src": "backend/src/instagram_auth/scraper.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/backend/src/instagram_auth/scraper.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
