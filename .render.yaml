@@ -3,7 +3,7 @@ services:
     name: my-app
     env: node
     buildCommand: "npm install"
-    startCommand: "npm start"
+    startCommand: "npx puppeteer install chrome && npm start"
     plan: free
     envVars:
       - key: NODE_ENV

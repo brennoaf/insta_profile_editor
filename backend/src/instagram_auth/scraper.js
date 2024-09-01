@@ -1,5 +1,6 @@
 import express from 'express';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 import cors from 'cors';
 import fetch from 'node-fetch';
 
@@ -10,7 +11,6 @@ app.get('/test', (req, res) => {
   res.send('Backend está funcionando!');
 });
 
-
 app.get('/scraped-profile', async (req, res) => {
   const urlUsername = req.query.username;
 
@@ -18,8 +18,15 @@ app.get('/scraped-profile', async (req, res) => {
     return res.status(400).json({ error: 'Username is required' });
   }
 
+  let browser;
   try {
-    const browser = await puppeteer.launch({ headless: true });
+    browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(
+        'https://github.com/Sparticuz/chromium/releases/download/v127.0.0/chromium-v127.0.0-pack.tar'
+      ),
+      headless: chromium.headless,
+    });
     const page = await browser.newPage();
 
     await page.goto(`https://www.instagram.com/${urlUsername}/`, {
@@ -48,19 +55,17 @@ app.get('/scraped-profile', async (req, res) => {
       return { username, profilePicUrl, name, biography, followers, following, postQuantity };
     });
 
-    await browser.close();
-
     res.json(scrapedInfo);
 
   } catch (error) {
     console.error('Error fetching profile information:', error);
     res.status(500).json({ error: 'Failed to fetch profile information' });
-    await browser.close();
-
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
   }
-
 });
-
 
 app.get('/scraped-publications', async (req, res) => {
   const urlUsername = req.query.username;
@@ -69,12 +74,15 @@ app.get('/scraped-publications', async (req, res) => {
     return res.status(400).json({ error: 'Username is required' });
   }
 
+  let browser;
   try {
-    const browser = await puppeteer.launch({ 
-      //Launch params guarantees an invisible process
-      headless: 'new', 
-      args: ['--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
-     });
+    browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(
+        'https://github.com/Sparticuz/chromium/releases/download/v127.0.0/chromium-v127.0.0-pack.tar'
+      ),
+      headless: chromium.headless,
+    });
     const page = await browser.newPage();
 
     await page.goto(`https://www.instagram.com/${urlUsername}/`, {
@@ -113,7 +121,7 @@ app.get('/scraped-publications', async (req, res) => {
     }
 
     const getImages = async () => {
-      const numberOfImages = 12; // forcing image load quantity to 12
+      const numberOfImages = 12; // Limite de 12 imagens
       let images = [];
       let lastHeight = await page.evaluate('document.body.scrollHeight');
 
@@ -140,26 +148,22 @@ app.get('/scraped-publications', async (req, res) => {
 
     const postsBase64 = await Promise.all(posts.map(url => fetchImageAsBase64(url)));
 
-    await browser.close();
-
     res.json({ 
       posts: postsBase64, 
       highlightData 
-      
     });
 
   } catch (error) {
-    console.error('Error fetching profile information:', error);
-    res.status(500).json({ error: 'Failed to fetch profile information' });
-
-  }finally {
+    console.error('Error fetching publications:', error);
+    res.status(500).json({ error: 'Failed to fetch publications' });
+  } finally {
     if (browser) {
-      await browser.close();  // Certifique-se de fechar o navegador mesmo se ocorrer um erro
+      await browser.close();
     }
   }
 });
 
-//Necessário pois as thumbnails de publicação estavam sendo recusadas pelo CORS
+// Função para converter imagem em Base64
 async function fetchImageAsBase64(url) {
   const response = await fetch(url);
   const buffer = await response.arrayBuffer();
@@ -168,5 +172,5 @@ async function fetchImageAsBase64(url) {
 
 const port = 3001;
 app.listen(port, () => {
-  console.log(`Server running`);
+  console.log(`Server running on port ${port}`);
 });
