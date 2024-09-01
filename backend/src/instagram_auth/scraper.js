@@ -1,8 +1,9 @@
 import express from 'express';
-import puppeteer from 'puppeteer-core';
-import chromium from '@sparticuz/chromium';
+import puppeteer from 'puppeteer';
 import cors from 'cors';
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -11,22 +12,36 @@ app.get('/test', (req, res) => {
   res.send('Backend está funcionando!');
 });
 
+
 app.get('/scraped-profile', async (req, res) => {
   const urlUsername = req.query.username;
+
+  const args = [
+    "--disable-setuid-sandbox",
+    "--no-sandbox",
+    "--single-process",
+    "--no-zygote",
+  ]
+  console.log(process.env.NODE_ENV === 'process')
+  if (process.env.NODE_ENV === 'process') {
+    const index = args.indexOf("--single-process");
+    if (index > -1) {
+      args.splice(index, 1);
+    }
+  }
+
+  const browser = await puppeteer.launch({ 
+    args,
+    executablePath: process.env.NODE_ENV === 'process' 
+      ? process.env.PUPPETEER_EXECUTABLE_PATH
+      : puppeteer.executablePath(),
+   });
 
   if (!urlUsername) {
     return res.status(400).json({ error: 'Username is required' });
   }
 
-  let browser;
   try {
-    browser = await puppeteer.launch({
-      args: chromium.args,
-      executablePath: await chromium.executablePath(
-        'https://github.com/Sparticuz/chromium/releases/download/v127.0.0/chromium-v127.0.0-pack.tar'
-      ),
-      headless: chromium.headless,
-    });
     const page = await browser.newPage();
 
     await page.goto(`https://www.instagram.com/${urlUsername}/`, {
@@ -34,7 +49,7 @@ app.get('/scraped-profile', async (req, res) => {
       timeout: 60000,
     });
 
-    await page.waitForSelector('meta[property="og:title"]', { timeout: 5000 });
+    await page.waitForSelector('meta[property="og:title"]', { timeout: 60000 });
 
     const scrapedInfo = await page.evaluate(() => {
       const getTextContent = (selector) => {
@@ -59,13 +74,14 @@ app.get('/scraped-profile', async (req, res) => {
 
   } catch (error) {
     console.error('Error fetching profile information:', error);
-    res.status(500).json({ error: 'Failed to fetch profile information' });
+    res.status(500).json({ error: 'Failed to fetch profile information, ', error });
+
   } finally {
-    if (browser) {
-      await browser.close();
-    }
+    await browser.close();
   }
+
 });
+
 
 app.get('/scraped-publications', async (req, res) => {
   const urlUsername = req.query.username;
@@ -74,24 +90,37 @@ app.get('/scraped-publications', async (req, res) => {
     return res.status(400).json({ error: 'Username is required' });
   }
 
-  let browser;
+  const args = [
+    "--disable-setuid-sandbox",
+    "--no-sandbox",
+    "--single-process",
+    "--no-zygote",
+  ]
+
+  if (process.env.NODE_ENV === 'process') {
+    const index = args.indexOf("--single-process");
+    if (index > -1) {
+      args.splice(index, 1);
+    }
+  }
+  
+  const browser = await puppeteer.launch({ 
+    args,
+    executablePath: process.env.NODE_ENV === 'process' 
+      ? process.env.PUPPETEER_EXECUTABLE_PATH
+      : puppeteer.executablePath(),
+   });
+
   try {
-    browser = await puppeteer.launch({
-      args: chromium.args,
-      executablePath: await chromium.executablePath(
-        'https://github.com/Sparticuz/chromium/releases/download/v127.0.0/chromium-v127.0.0-pack.tar'
-      ),
-      headless: chromium.headless,
-    });
     const page = await browser.newPage();
 
     await page.goto(`https://www.instagram.com/${urlUsername}/`, {
       waitUntil: 'networkidle2',
-      timeout: 30000,
+      timeout: 60000,
     });
 
     const getHighlightData = async () => {
-      await page.waitForSelector('div.x1qjc9v5 ul._acay li._acaz', { timeout: 10000 });
+      await page.waitForSelector('div.x1qjc9v5 ul._acay li._acaz', { timeout: 60000 });
 
       const highlights = await page.evaluate(() => {
         const highlightElements = Array.from(document.querySelectorAll('ul._acay > li._acaz'));
@@ -121,13 +150,13 @@ app.get('/scraped-publications', async (req, res) => {
     }
 
     const getImages = async () => {
-      const numberOfImages = 12; // Limite de 12 imagens
+      const numberOfImages = 12; // forcing image load quantity to 12
       let images = [];
       let lastHeight = await page.evaluate('document.body.scrollHeight');
 
       while (images.length < numberOfImages) {
         await page.evaluate('window.scrollTo(0, document.body.scrollHeight)');
-        await page.waitForSelector('article img', { timeout: 10000 }).catch(() => {});
+        await page.waitForSelector('article img', { timeout: 60000 }).catch(() => {});
 
         images = await page.evaluate(() => {
           const postElements = Array.from(document.querySelectorAll('article img'));
@@ -148,22 +177,26 @@ app.get('/scraped-publications', async (req, res) => {
 
     const postsBase64 = await Promise.all(posts.map(url => fetchImageAsBase64(url)));
 
+
     res.json({ 
       posts: postsBase64, 
       highlightData 
+      
     });
 
+  
   } catch (error) {
-    console.error('Error fetching publications:', error);
-    res.status(500).json({ error: 'Failed to fetch publications' });
+    console.error('Error fetching profile information:', error);
+    res.status(500).json({ error: 'Failed to fetch profile information, ', error });
+
   } finally {
-    if (browser) {
-      await browser.close();
-    }
+    await browser.close();
+
   }
+
 });
 
-// Função para converter imagem em Base64
+//Necessário pois as thumbnails de publicação estavam sendo recusadas pelo CORS
 async function fetchImageAsBase64(url) {
   const response = await fetch(url);
   const buffer = await response.arrayBuffer();
@@ -172,5 +205,5 @@ async function fetchImageAsBase64(url) {
 
 const port = 3001;
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running`);
 });
