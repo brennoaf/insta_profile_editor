@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: my-app
+    env: node
+    buildCommand: "npm install"
+    startCommand: "node backend/src/instagram_auth/scraper.js"
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+    staticPublishPath: public
