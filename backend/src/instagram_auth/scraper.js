@@ -142,7 +142,7 @@ app.get('/scraped-publications', async (req, res) => {
 
     const highlightData = await getHighlightData();
 
-    // Convert highlight images to Base64
+    // convertendo as imagens para base64
     for (let highlight of highlightData) {
       if (highlight.image) {
         highlight.image = await fetchImageAsBase64(highlight.image);
@@ -150,7 +150,7 @@ app.get('/scraped-publications', async (req, res) => {
     }
 
     const getImages = async () => {
-      const numberOfImages = 12; // forcing image load quantity to 12
+      const numberOfImages = 12; // forçando as publicações para somente 12
       let images = [];
       let lastHeight = await page.evaluate('document.body.scrollHeight');
 
